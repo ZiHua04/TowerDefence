@@ -1,0 +1,13 @@
+﻿  Monster.cpp
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\Monster.cpp(13,44): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\Monster.cpp(14,45): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\Monster.cpp(18,27): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\Monster.cpp(27,50): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\Monster.cpp(27,25): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\Monster.cpp(42,16): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\Monster.cpp(43,19): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
+  main.cpp
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\main.cpp(30,20): warning C4018: “<”: 有符号/无符号不匹配
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\main.cpp(43,20): warning C4018: “<”: 有符号/无符号不匹配
+  正在生成代码...
+  TowerDefence_new.vcxproj -> F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\Debug\TowerDefence_new.exe
