@@ -1,6 +1,7 @@
 #include "ClickButton.h"
 #include "EasyXPng.h"
 #include "Images.h"
+#include "Global.h"
 // 构造函数
 ClickButton::ClickButton()
 {
@@ -44,6 +45,17 @@ void ClickButton::clickCoordinate(Coordinate coordinate)
 			// 判断是否可以建造
 			if (towerMap[coordinate.row][coordinate.col] == 0) {
 				// 可以建造
+				// 检查是否已经建造
+				for (const auto& pair : towers) {
+					// pair.first 是键 (Coordinate)， pair.second 是值 (Tower*)
+					if (pair.first == coordinate) {
+						// 这里已经建造
+						// 判断是否能升级
+
+						// 不能升级
+						return;
+					}
+				}
 				show(ClickButtonType::Build, coordinate);
 				break;
 			}
@@ -52,6 +64,12 @@ void ClickButton::clickCoordinate(Coordinate coordinate)
 				break;
 			}
 			// 不可升级，点击的是空白土地
+			if (coordinate.row == lastClickCoordinate.row && coordinate.col == lastClickCoordinate.col + 1) {
+                // 点击的是建造按钮的右边
+				// 在这里建造
+				//towers.insert(std::pair<Coordinate, Tower*>(coordinate, new Tower(TowerType::Attack, coordinate)));
+				towers.insert(std::make_pair(lastClickCoordinate, new Tower(TowerType::Attack, lastClickCoordinate)));
+			}
 			hide();
 			break;
 		case ClickButtonType::Upgrade:
@@ -61,6 +79,17 @@ void ClickButton::clickCoordinate(Coordinate coordinate)
 			// 判断是否可以建造
 			if (towerMap[coordinate.row][coordinate.col] == 0) {
 				// 可以建造
+				// 检查是否已经建造
+				for (const auto& pair : towers) {
+					// pair.first 是键 (Coordinate)， pair.second 是值 (Tower*)
+					if (pair.first == coordinate) {
+						// 这里已经建造
+						// 判断是否能升级
+
+						// 不能升级
+						return;
+					}
+				}
 				show(ClickButtonType::Build, coordinate);
 				break;
 			}

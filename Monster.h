@@ -36,6 +36,8 @@ public:
 	void move(); // 移动怪物, 每0.1s调用一次
 	void update(); // 更新怪物状态, 每0.1s调用一次
 	Coordinate findNext(); // 寻找下一个坐标
+
+	void subHeart(int value);
 };
 
 

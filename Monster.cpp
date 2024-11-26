@@ -133,3 +133,8 @@ Coordinate Monster::findNext()
 	}
 	return Coordinate(-1, -1);
 }
+
+void Monster::subHeart(int value)
+{
+	this->heart -= value;
+}

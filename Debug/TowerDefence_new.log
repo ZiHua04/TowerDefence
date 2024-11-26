@@ -1,5 +1,24 @@
-﻿  ClickButton.cpp
-F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\ClickButton.cpp(19,18): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\ClickButton.cpp(19,15): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\ClickButton.cpp(90,29): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+﻿  Global.cpp
+  main.cpp
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\main.cpp(25,11): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\main.cpp(26,11): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\main.cpp(35,20): warning C4018: “<”: 有符号/无符号不匹配
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\main.cpp(36,21): warning C4018: “<”: 有符号/无符号不匹配
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\main.cpp(39,161): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\main.cpp(39,145): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\main.cpp(39,128): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\main.cpp(39,113): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\main.cpp(56,20): warning C4018: “<”: 有符号/无符号不匹配
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\main.cpp(77,20): warning C4018: “<”: 有符号/无符号不匹配
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\main.cpp(90,20): warning C4018: “<”: 有符号/无符号不匹配
+  Tower.cpp
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\Tower.cpp(11,30): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\Tower.cpp(12,31): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\Tower.cpp(17,26): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\Tower.cpp(17,15): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\Tower.cpp(30,16): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\Tower.cpp(30,13): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\Tower.cpp(30,10): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\Tower.cpp(63,20): warning C4018: “<”: 有符号/无符号不匹配
+  正在生成代码...
   TowerDefence_new.vcxproj -> F:\workspace\Kaifashijian\finalwork\workspace\TowerDefence_new\Debug\TowerDefence_new.exe

@@ -27,7 +27,11 @@ enum class ClickButtonType {
     Upgrade, // 升级
 	Hide, // 隐藏
 };
-
+// 表示塔的类型
+enum class TowerType {
+	Attack = 0, // 攻击塔
+	Coin, // 金币塔
+};
 
 
 #endif // !ENUM_H

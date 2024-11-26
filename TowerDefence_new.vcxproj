@@ -140,22 +140,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="ClickButton.h" />
     <ClInclude Include="Constant.h" />
     <ClInclude Include="EasyXPng.h" />
     <ClInclude Include="Enum.h" />
+    <ClInclude Include="Global.h" />
     <ClInclude Include="Images.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Toolkit.h" />
+    <ClInclude Include="Tower.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="ClickButton.cpp" />
     <ClCompile Include="Constant.cpp" />
+    <ClCompile Include="Global.cpp" />
     <ClCompile Include="Images.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Toolkit.cpp" />
+    <ClCompile Include="Tower.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

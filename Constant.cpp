@@ -22,10 +22,25 @@ std::map<MonsterType, MonsterInfo> monsterInfo = {
 
 std::vector<IMAGE> getImagesByTypeAndDirection(MonsterType type, char direction) {
     switch (direction) {
-    case 'w': return ims_w[type];
-    case 'a': return ims_a[type];
-    case 's': return ims_s[type];
-    case 'd': return ims_d[type];
+        case 'w': return ims_w[type];
+        case 'a': return ims_a[type];
+        case 's': return ims_s[type];
+        case 'd': return ims_d[type];
     }
     return ims_w[type];
+}
+
+std::vector<IMAGE> getTowerImages(TowerType type, int grade) {
+    switch (type)
+    {
+    case TowerType::Attack:
+        if(grade == 1) return ims_tower1;
+        if(grade == 2) return ims_tower2;
+        if(grade == 3) return ims_tower3;
+        break;
+    case TowerType::Coin:
+        break;
+    default:
+        break;
+    }
 }

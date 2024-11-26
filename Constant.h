@@ -57,6 +57,8 @@ void addMaps();
 
 std::vector<IMAGE> getImagesByTypeAndDirection(MonsterType type, char direction);
 
+std::vector<IMAGE> getTowerImages(TowerType type, int grade);
+
 // ======= 怪物信息 =======
 struct MonsterInfo {
     int heart;
@@ -75,6 +77,15 @@ struct Coordinate {
 
     Coordinate() = default;
     Coordinate(int r, int c) : row(r), col(c) {}
+    bool operator<(const Coordinate& other) const {
+        if (row == other.row) {
+            return col < other.col;  // 如果 x 相同，比较 y
+        }
+        return row < other.row;  // 比较 x
+    }
+    bool operator==(const Coordinate& other) const {
+        return (row == other.row && col == other.col);
+    }
 };
 
 #endif // CONSTANT_H

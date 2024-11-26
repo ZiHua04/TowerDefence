@@ -3,25 +3,11 @@
 #include "Constant.h"
 #include "Toolkit.h"
 #include <conio.h>
-#include "Monster.h"
-#include "ClickButton.h"
-// 怪物
-std::vector<Monster*> monsters;
-// 升级按钮
-ClickButton* clickButton = new ClickButton();
+#include "Global.h"
 
-void destoryMonsterById(int id) {
-	// 使用 std::find_if 查找
-	auto it = std::find_if(monsters.begin(), monsters.end(), [id](Monster* monster) {
-		return (monster->id == id); // 比较对象的 id
-		});
-	if (it != monsters.end()) {
-		// 释放内存
-		delete* it;
-		// 从 vector 中移除指针
-		monsters.erase(it);
-	}
-}
+
+
+
 // 初始化一把游戏
 void init() {
 	initgraph(WIDHT, HEIGHT); // 初始化图形窗口
@@ -45,7 +31,18 @@ void input() {
 }
 // 处理所有碰撞事件
 void detectAll() {
-
+	// 处理子弹和怪物
+	for (int i = 0; i < bullets.size(); i++) {
+		for (int j = 0; j < monsters.size(); j++) {
+			Bullet* bullet = bullets[i];
+			Monster* monster = monsters[j];
+			if (DetectTwoRectangle(bullet->x, bullet->y, monster->x-monster->width/2, monster->y-monster->heart/2, bullet->width, bullet->height, monster->width, monster->height)) {
+				destoryBulletById(bullet->id);
+				monster->subHeart(1);
+				return;
+			}
+		}
+	}
 }
 
 int tempSecondCount = 0;
@@ -63,9 +60,23 @@ void updateAll() {
 			i--;
 			continue;
 		}
+		if (monsters[i]->heart < 0) {
+			destoryMonsterById(monsters[i]->id);
+			i--;
+			continue;
+		}
 	}
 
 	clickButton->update();
+
+	for (const auto& pair : towers) {
+		// pair.first 是键 (Coordinate)， pair.second 是值 (Tower*)
+		pair.second->update();
+	}
+
+	for (int i = 0; i < bullets.size(); i++) {
+		bullets[i]->update();
+	}
 
 	tempSecondCount+=5;
 	if (tempSecondCount >= 1000) {
