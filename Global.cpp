@@ -8,6 +8,8 @@ ClickButton* clickButton = new ClickButton();
 std::map<Coordinate, Tower*> towers;
 // 子弹
 std::vector<Bullet*> bullets;
+// 金币系统
+CoinSystem* coinSystem = new CoinSystem();
 
 void destoryMonsterById(int id) {
 	// 使用 std::find_if 查找

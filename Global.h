@@ -7,6 +7,7 @@
 #include "ClickButton.h"
 #include "Tower.h"
 #include "Bullet.h"
+#include "CoinSystem.h"
 // 怪物
 extern std::vector<Monster*> monsters;
 // 升级按钮
@@ -15,6 +16,8 @@ extern ClickButton* clickButton;
 extern std::map<Coordinate, Tower*> towers;
 // 子弹
 extern std::vector<Bullet*> bullets;
+// 金币系统
+extern CoinSystem* coinSystem;
 // 摧毁怪物
 void destoryMonsterById(int id);
 // 摧毁子弹

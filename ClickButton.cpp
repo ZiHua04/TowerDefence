@@ -70,6 +70,11 @@ void ClickButton::clickCoordinate(Coordinate coordinate)
 				//towers.insert(std::pair<Coordinate, Tower*>(coordinate, new Tower(TowerType::Attack, coordinate)));
 				towers.insert(std::make_pair(lastClickCoordinate, new Tower(TowerType::Attack, lastClickCoordinate)));
 			}
+			if (coordinate.row == lastClickCoordinate.row && coordinate.col == lastClickCoordinate.col - 1) {
+				// 点击的是建造按钮的左边
+				// 在这里建造
+				towers.insert(std::make_pair(lastClickCoordinate, new Tower(TowerType::Coin, lastClickCoordinate)));
+			}
 			hide();
 			break;
 		case ClickButtonType::Upgrade:

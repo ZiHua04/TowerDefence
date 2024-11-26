@@ -10,6 +10,10 @@ std::vector<IMAGE> ims_monster_d;
 std::vector<IMAGE> ims_tower1;
 std::vector<IMAGE> ims_tower2;
 std::vector<IMAGE> ims_tower3;
+// ½ğ±ÒËşÍ¼Æ¬
+std::vector<IMAGE> ims_coinTower1;
+std::vector<IMAGE> ims_coinTower2;
+std::vector<IMAGE> ims_coinTower3;
 // ¹­¼ıÍ¼Æ¬
 IMAGE im_arrow;
 
@@ -71,6 +75,22 @@ void loadAllImages() {
 		ims_tower3.push_back(im);
 	}
 	printf_s("ËşÍ¼Æ¬¼ÓÔØÍê±Ï");
+	// ¼ÓÔØ½ğ±ÒËşÍ¼Æ¬
+	for (int i = 0; i < 4; i++) {
+		_stprintf_s(filename, _T("res/images/Tower/coinTower1/%d.png"), i);
+		IMAGE im;
+		loadimage(&im, filename);
+		ims_coinTower1.push_back(im);
+
+		_stprintf_s(filename, _T("res/images/Tower/coinTower2/%d.png"), i);
+		loadimage(&im, filename);
+		ims_coinTower2.push_back(im);
+
+		_stprintf_s(filename, _T("res/images/Tower/coinTower3/%d.png"), i);
+		loadimage(&im, filename);
+		ims_coinTower3.push_back(im);
+	}
+
 	// ¼ÓÔØ¹­¼ıÍ¼Æ¬
 	loadimage(&im_arrow, _T("res/images/Tower/arrow.png"));
 	printf_s("¹­¼ıÍ¼Æ¬¼ÓÔØÍê±Ï");

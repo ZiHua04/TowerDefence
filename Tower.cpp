@@ -2,6 +2,9 @@
 #include "EasyXPng.h"
 #include "Global.h"
 #include "Toolkit.h"
+
+
+
 Tower::Tower(TowerType type, Coordinate coordinate)
 {
 	this->id = ++TowerId;
@@ -75,4 +78,5 @@ void Tower::Shoot()
 
 void Tower::addCoin()
 {
+	coinSystem->addCoin(this->coinPerSecond, this->x, this->y);
 }

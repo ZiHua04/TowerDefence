@@ -39,6 +39,9 @@ std::vector<IMAGE> getTowerImages(TowerType type, int grade) {
         if(grade == 3) return ims_tower3;
         break;
     case TowerType::Coin:
+        if (grade == 1) return ims_coinTower1;
+        if (grade == 2) return ims_coinTower2;
+        if (grade == 3) return ims_coinTower3;
         break;
     default:
         break;

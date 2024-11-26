@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="ClickButton.h" />
+    <ClInclude Include="CoinSystem.h" />
     <ClInclude Include="Constant.h" />
     <ClInclude Include="EasyXPng.h" />
     <ClInclude Include="Enum.h" />
@@ -155,6 +156,7 @@
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="ClickButton.cpp" />
+    <ClCompile Include="CoinSystem.cpp" />
     <ClCompile Include="Constant.cpp" />
     <ClCompile Include="Global.cpp" />
     <ClCompile Include="Images.cpp" />

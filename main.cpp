@@ -78,6 +78,8 @@ void updateAll() {
 		bullets[i]->update();
 	}
 
+	coinSystem->update();
+
 	tempSecondCount+=5;
 	if (tempSecondCount >= 1000) {
 		updatePerSecond();

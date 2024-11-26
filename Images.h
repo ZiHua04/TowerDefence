@@ -16,6 +16,10 @@ extern std::vector<IMAGE> ims_monster_d;
 extern std::vector<IMAGE> ims_tower1;
 extern std::vector<IMAGE> ims_tower2;
 extern std::vector<IMAGE> ims_tower3;
+// ½ð±ÒËþÍ¼Æ¬
+extern std::vector<IMAGE> ims_coinTower1;
+extern std::vector<IMAGE> ims_coinTower2;
+extern std::vector<IMAGE> ims_coinTower3;
 // ¹­¼ýÍ¼Æ¬
 extern IMAGE im_arrow;
 
