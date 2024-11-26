@@ -21,6 +21,12 @@ enum class MonsterType {
 	// 狗
 	Dog
 };
+// 表示按钮类型	
+enum class ClickButtonType {
+	Build = 0, // 建造
+    Upgrade, // 升级
+	Hide, // 隐藏
+};
 
 
 

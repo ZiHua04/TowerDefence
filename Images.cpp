@@ -1,6 +1,6 @@
 #include "Images.h"
 IMAGE im_bk;// 背景图片
-IMAGE im_upgrade;
+
 // 怪物图片
 std::vector<IMAGE> ims_monster_w;
 std::vector<IMAGE> ims_monster_a;
@@ -13,14 +13,26 @@ std::vector<IMAGE> ims_tower3;
 // 弓箭图片
 IMAGE im_arrow;
 
+std::vector<IMAGE> ims_upgrade_button;
+
+IMAGE im_build;
+
 void loadAllImages() {
 	TCHAR filename[80];
 	// 加载背景图片
 	loadimage(&im_bk, _T("res/images/背景图.png"));
 	printf_s("背景图片加载完毕");
 
-	loadimage(&im_upgrade, _T("res/images/UI/升级按钮.png"));
+	for (int i = 0; i < 12; i++) {
+		_stprintf_s(filename, _T("res/images/UI/升级按钮/%d.png"), i);
+		IMAGE im;
+		loadimage(&im, filename);
+		ims_upgrade_button.push_back(im);
+	}
 	printf_s("升级按钮加载完毕");
+
+	loadimage(&im_build, _T("res/images/UI/buildButton.png"));
+	printf_s("建造按钮加载完毕");
 
 	// 加载怪物图片
 	for (int i = 0; i < 6; i++)

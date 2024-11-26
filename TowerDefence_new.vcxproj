@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ClickButton.h" />
     <ClInclude Include="Constant.h" />
     <ClInclude Include="EasyXPng.h" />
     <ClInclude Include="Enum.h" />
@@ -149,6 +150,7 @@
     <ClInclude Include="Toolkit.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ClickButton.cpp" />
     <ClCompile Include="Constant.cpp" />
     <ClCompile Include="Images.cpp" />
     <ClCompile Include="main.cpp" />

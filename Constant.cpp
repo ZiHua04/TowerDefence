@@ -12,15 +12,7 @@ void addMaps() {
     ims_d.insert(std::pair<MonsterType, std::vector<IMAGE>>(MonsterType::Goblin, ims_monster_d));
 }
 
-int towerMap[ROW][COL] = {
-    {0,-1,-1,-1,-1,-1,-1,-1,-1,0,-1},
-    {-1,-1,-1,-1,0,-1,-1,-1,-1,-1,-1},
-    {-1,-1,0,-1,-1,0,-1,-1,0,-1,-1},
-    {-1,-1,-1,-1,0,-1,-1,-1,-1,-1,-1},
-    {0,-1,-1,-1,-1,-1,-1,-1,0,-1,-1},
-    {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-    {-1,-1,-1,0,-1,-1,0,-1,-1,-1,-1},
-};
+
 
 std::map<MonsterType, MonsterInfo> monsterInfo = {
     {MonsterType::Goblin, {20, 1, 5, 47, 56}},

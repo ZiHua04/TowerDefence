@@ -22,6 +22,34 @@ Monster::Monster(MonsterType type, Coordinate coordinate) {
 	this->type = type;
 }
 
+void Monster::drawHeart()
+{
+	// 血条宽度
+	float heartWidth = 50;
+	// 血条高度
+	float heartHeight = 10;
+	// 一排血条的血量
+	int heartValuePerRow = 10;
+	// 绘制血条外框
+	setlinecolor(BLACK);
+	for (int i = 0; i < this->heart; i += heartValuePerRow) {
+		rectangle(this->x - heartWidth / 2, this->y - this->height / 2 - heartHeight - i*1.2, this->x + heartWidth / 2, this->y - this->height / 2 - i * 1.2);
+	}
+	int leftValue = this->heart;
+	// 绘制内部
+	setfillcolor(RED);
+	for (int i = 0; i < this->heart; i += heartValuePerRow) {
+		if (leftValue >= heartValuePerRow) {
+			fillrectangle(this->x - heartWidth / 2, this->y - this->height / 2 - heartHeight - i * 1.2, this->x + heartWidth / 2, this->y - this->height / 2 - i * 1.2);
+			leftValue -= heartValuePerRow;
+		}
+		else {
+			fillrectangle(this->x - heartWidth / 2, this->y - this->height / 2 - heartHeight - i * 1.2, this->x - heartWidth / 2 + heartWidth * (leftValue*1.0/ heartValuePerRow), this->y - this->height / 2 - i * 1.2);
+		}
+	}
+
+}
+
 void Monster::draw()
 {
     putimagePng(this->x - this->width/2, this->y - this->height/2, &ims_monster[aniId]);
@@ -31,6 +59,7 @@ void Monster::draw()
         aniId++;
         aniId %= ims_monster.size();
     }
+	drawHeart();
 }
 
 void Monster::move()

@@ -4,15 +4,44 @@
 #include "Toolkit.h"
 #include <conio.h>
 #include "Monster.h"
+#include "ClickButton.h"
+// 怪物
 std::vector<Monster*> monsters;
+// 升级按钮
+ClickButton* clickButton = new ClickButton();
 
+void destoryMonsterById(int id) {
+	// 使用 std::find_if 查找
+	auto it = std::find_if(monsters.begin(), monsters.end(), [id](Monster* monster) {
+		return (monster->id == id); // 比较对象的 id
+		});
+	if (it != monsters.end()) {
+		// 释放内存
+		delete* it;
+		// 从 vector 中移除指针
+		monsters.erase(it);
+	}
+}
 // 初始化一把游戏
 void init() {
 	initgraph(WIDHT, HEIGHT); // 初始化图形窗口
 }
+ExMessage m;
 // 处理鼠标和键盘输入
 void input() {
-
+	if (!peekmessage(&m)) return;
+	// 获取一条鼠标或按键消息
+	switch (m.message)
+	{
+	case WM_LBUTTONDOWN:
+		float x = m.x;
+		float y = m.y;
+		int col = x / BLOCK_WIDTH;
+		int row = y / BLOCK_HEIGHT;
+		if (col < 0 || col >= COL || row < 0 || row >= ROW) return;
+		clickButton->clickCoordinate(Coordinate(row, col));
+		break;
+	}
 }
 // 处理所有碰撞事件
 void detectAll() {
@@ -29,7 +58,14 @@ void updatePerSecond() {
 void updateAll() {
 	for (int i = 0; i < monsters.size(); i++) {
 		monsters[i]->update();
+		if (monsters[i]->isArrived) {
+			destoryMonsterById(monsters[i]->id);
+			i--;
+			continue;
+		}
 	}
+
+	clickButton->update();
 
 	tempSecondCount+=5;
 	if (tempSecondCount >= 1000) {
@@ -87,10 +123,10 @@ void ShowPlayingScene() {
 		input();
 
 		detectAll();
-		updateAll();
-
+		
 		cleardevice();
 		drawAll();
+		updateAll();
 		FlushBatchDraw();
 
 		Sleep(5);
