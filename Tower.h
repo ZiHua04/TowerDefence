@@ -37,8 +37,10 @@ public:
 	void update();
 	// Éä»÷
 	void Shoot();
-	// 
+	// ¼ÓÇ®
 	void addCoin();
+	// Éý¼¶
+	void upgrade();
 };
 #endif // !TOWER_H
 

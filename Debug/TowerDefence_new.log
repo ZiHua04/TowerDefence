@@ -1,7 +1,9 @@
-﻿  CoinSystem.cpp
-E:\Workspace\TowerDefence\CoinSystem.cpp(31,20): warning C4018: “<”: 有符号/无符号不匹配
-E:\Workspace\TowerDefence\CoinSystem.cpp(32,47): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-E:\Workspace\TowerDefence\CoinSystem.cpp(32,35): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-E:\Workspace\TowerDefence\CoinSystem.cpp(38,20): warning C4018: “<”: 有符号/无符号不匹配
-E:\Workspace\TowerDefence\CoinSystem.cpp(21): warning C4715: “CoinSystem::subCoin”: 不是所有的控件路径都返回值
+﻿  ClickButton.cpp
+E:\Workspace\TowerDefence\ClickButton.cpp(20,18): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\ClickButton.cpp(20,15): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\ClickButton.cpp(23,18): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\ClickButton.cpp(23,15): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\ClickButton.cpp(162,29): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+E:\Workspace\TowerDefence\ClickButton.cpp(168,29): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+E:\Workspace\TowerDefence\ClickButton.cpp(169,44): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
   TowerDefence_new.vcxproj -> E:\Workspace\TowerDefence\Debug\TowerDefence_new.exe

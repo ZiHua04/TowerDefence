@@ -101,7 +101,7 @@ void ShowStartScene() {
 	while (currentGameState == GameState::START_SCENE) {
 
 		drawText("这是开始界面", WIDHT / 2, HEIGHT / 2, 40);
-		drawText("按任意键开始游戏", WIDHT / 2, HEIGHT / 2 + 50, 30);
+		drawText("按空格键开始游戏", WIDHT / 2, HEIGHT / 2 + 50, 30);
 		if (_getch() == ' ') {
 			currentGameState = GameState::PLAYING;
 		};
@@ -117,7 +117,7 @@ void ShowResultScene() {
 	while (currentGameState == GameState::WIN || currentGameState == GameState::LOSE) {
 		
 		drawText("这是结算界面", WIDHT / 2, HEIGHT / 2, 40);
-		drawText("按任意键重启游戏", WIDHT / 2, HEIGHT / 2 + 50, 30);
+		drawText("按空格键重启游戏", WIDHT / 2, HEIGHT / 2 + 50, 30);
 		if (_getch() == ' ') {
 			currentGameState = GameState::START_SCENE;
 		};

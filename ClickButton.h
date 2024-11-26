@@ -15,6 +15,9 @@ public:
 	Coordinate lastClickCoordinate; // 上一次点击的坐标
 	float x = 0, y = 0;
 	float width = 0, height = 0;
+	int aniId = 0;
+	int aniCount = 0;
+
 
 	// 构造函数
 	ClickButton();

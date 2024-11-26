@@ -80,3 +80,10 @@ void Tower::addCoin()
 {
 	coinSystem->addCoin(this->coinPerSecond, this->x, this->y);
 }
+
+void Tower::upgrade()
+{
+	if (currentGrade >= 3) return;
+	currentGrade++;
+	this->ims_tower = getTowerImages(type, currentGrade);
+}

@@ -20,6 +20,13 @@ void ClickButton::draw()
 		putimagePng(x, y, &im_build);
 		break;
 	case ClickButtonType::Upgrade:
+		putimagePng(x, y, &ims_upgrade_button[aniId]);
+		aniCount++;
+		if (aniCount >= ANI_MAX_COUNT) {
+			aniCount = 0;
+			aniId++;
+			aniId %= ims_upgrade_button.size();
+		}
 		break;
 	default:
 		break;
@@ -51,18 +58,20 @@ void ClickButton::clickCoordinate(Coordinate coordinate)
 					if (pair.first == coordinate) {
 						// 这里已经建造
 						// 判断是否能升级
+						if (pair.second->currentGrade < 3)// 能升级
+						{
+							show(ClickButtonType::Upgrade, coordinate);
+							return;
+						}
 
 						// 不能升级
 						return;
 					}
 				}
 				show(ClickButtonType::Build, coordinate);
-				break;
+				return;
 			}
-			// 不可建造, 判断判断是否可以升级
-			if (false) {
-				break;
-			}
+			
 			// 不可升级，点击的是空白土地
 			if (coordinate.row == lastClickCoordinate.row && coordinate.col == lastClickCoordinate.col + 1) {
                 // 点击的是建造按钮的右边
@@ -79,6 +88,33 @@ void ClickButton::clickCoordinate(Coordinate coordinate)
 			break;
 		case ClickButtonType::Upgrade:
 
+
+			if ((coordinate.row == lastClickCoordinate.row - 1|| coordinate.row == lastClickCoordinate.row) && coordinate.col == lastClickCoordinate.col) {
+				towers[lastClickCoordinate]->upgrade();
+			}
+			// 判断是否可以建造
+			if (towerMap[coordinate.row][coordinate.col] == 0) {
+				// 可以建造
+				// 检查是否已经建造
+				for (const auto& pair : towers) {
+					// pair.first 是键 (Coordinate)， pair.second 是值 (Tower*)
+					if (pair.first == coordinate) {
+						// 这里已经建造
+						// 判断是否能升级
+						if (pair.second->currentGrade < 3) {
+							show(ClickButtonType::Upgrade, coordinate);
+							return;
+						}
+						// 不能升级
+
+						return;
+					}
+				}
+				show(ClickButtonType::Build, coordinate);
+				break;
+			}
+
+			hide();
 			break;
         case ClickButtonType::Hide:
 			// 判断是否可以建造
@@ -90,18 +126,19 @@ void ClickButton::clickCoordinate(Coordinate coordinate)
 					if (pair.first == coordinate) {
 						// 这里已经建造
 						// 判断是否能升级
-
+						if (pair.second->currentGrade < 3) {
+							show(ClickButtonType::Upgrade, coordinate);
+							return;
+						}
 						// 不能升级
+
 						return;
 					}
 				}
 				show(ClickButtonType::Build, coordinate);
 				break;
 			}
-			// 不可建造, 判断判断是否可以升级
-			if (false) {
-				break;
-			}
+			
             // 不可升级，点击的是空白土地
 			break;
 	default:
@@ -109,11 +146,12 @@ void ClickButton::clickCoordinate(Coordinate coordinate)
 	}
 	
 
-	lastClickCoordinate = coordinate;
+	
 }
 
 void ClickButton::show(ClickButtonType type, Coordinate coordinate)
 {
+	lastClickCoordinate = coordinate;
 	this->type = type;
 	switch (type) {
 		case ClickButtonType::Build:
@@ -125,6 +163,10 @@ void ClickButton::show(ClickButtonType type, Coordinate coordinate)
 			break;
 		case ClickButtonType::Upgrade:
 
+			this->width = BLOCK_WIDTH;
+			this->height = BLOCK_HEIGHT * 2;
+			this->x = coordinate.col * BLOCK_WIDTH;
+			this->y = coordinate.row * BLOCK_HEIGHT - BLOCK_HEIGHT;
 			break;
 	}
 }
