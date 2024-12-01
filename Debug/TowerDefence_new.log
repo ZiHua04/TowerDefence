@@ -1,4 +1,8 @@
-﻿  ClickButton.cpp
+﻿  Bullet.cpp
+E:\Workspace\TowerDefence\Bullet.cpp(21,16): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+E:\Workspace\TowerDefence\Bullet.cpp(39,17): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Bullet.cpp(39,14): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+  ClickButton.cpp
 E:\Workspace\TowerDefence\ClickButton.cpp(20,18): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
 E:\Workspace\TowerDefence\ClickButton.cpp(20,15): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
 E:\Workspace\TowerDefence\ClickButton.cpp(23,18): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
@@ -6,4 +10,57 @@ E:\Workspace\TowerDefence\ClickButton.cpp(23,15): warning C4244: “参数”: �
 E:\Workspace\TowerDefence\ClickButton.cpp(162,29): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
 E:\Workspace\TowerDefence\ClickButton.cpp(168,29): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
 E:\Workspace\TowerDefence\ClickButton.cpp(169,44): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+  CoinSystem.cpp
+E:\Workspace\TowerDefence\CoinSystem.cpp(31,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\Workspace\TowerDefence\CoinSystem.cpp(32,47): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\CoinSystem.cpp(32,35): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\CoinSystem.cpp(38,20): warning C4018: “<”: 有符号/无符号不匹配
+  Constant.cpp
+  Global.cpp
+  Images.cpp
+  Monster.cpp
+E:\Workspace\TowerDefence\Monster.cpp(13,44): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+E:\Workspace\TowerDefence\Monster.cpp(14,45): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+E:\Workspace\TowerDefence\Monster.cpp(18,27): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+E:\Workspace\TowerDefence\Monster.cpp(36,142): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Monster.cpp(36,97): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Monster.cpp(36,80): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Monster.cpp(36,21): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Monster.cpp(43,149): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Monster.cpp(43,104): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Monster.cpp(43,85): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Monster.cpp(43,26): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Monster.cpp(47,198): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Monster.cpp(47,121): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Monster.cpp(47,85): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Monster.cpp(47,26): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Monster.cpp(55,50): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Monster.cpp(55,25): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Monster.cpp(71,16): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
+E:\Workspace\TowerDefence\Monster.cpp(72,19): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
+  Tower.cpp
+E:\Workspace\TowerDefence\Tower.cpp(14,30): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+E:\Workspace\TowerDefence\Tower.cpp(15,31): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+E:\Workspace\TowerDefence\Tower.cpp(20,26): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Tower.cpp(20,15): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Tower.cpp(33,16): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Tower.cpp(33,13): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Tower.cpp(33,10): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Tower.cpp(66,20): warning C4018: “<”: 有符号/无符号不匹配
+  main.cpp
+E:\Workspace\TowerDefence\main.cpp(25,11): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\main.cpp(26,11): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\main.cpp(35,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\Workspace\TowerDefence\main.cpp(36,21): warning C4018: “<”: 有符号/无符号不匹配
+E:\Workspace\TowerDefence\main.cpp(39,161): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\main.cpp(39,145): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\main.cpp(39,128): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\main.cpp(39,113): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\main.cpp(52,5): warning C4305: “参数”: 从“double”到“float”截断
+E:\Workspace\TowerDefence\main.cpp(55,9): warning C4305: “参数”: 从“double”到“float”截断
+E:\Workspace\TowerDefence\main.cpp(66,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\Workspace\TowerDefence\main.cpp(87,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\Workspace\TowerDefence\main.cpp(102,20): warning C4018: “<”: 有符号/无符号不匹配
+  正在生成代码...
+E:\Workspace\TowerDefence\CoinSystem.cpp(21): warning C4715: “CoinSystem::subCoin”: 不是所有的控件路径都返回值
   TowerDefence_new.vcxproj -> E:\Workspace\TowerDefence\Debug\TowerDefence_new.exe

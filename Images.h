@@ -12,6 +12,16 @@ extern std::vector<IMAGE> ims_monster_w;
 extern std::vector<IMAGE> ims_monster_a;
 extern std::vector<IMAGE> ims_monster_s;
 extern std::vector<IMAGE> ims_monster_d;
+// µÿ”¸»ÆÕº∆¨
+extern std::vector<IMAGE> ims_dog_w;
+extern std::vector<IMAGE> ims_dog_a;
+extern std::vector<IMAGE> ims_dog_s;
+extern std::vector<IMAGE> ims_dog_d;
+// –∞∂Ò√€∑‰Õº∆¨ 
+extern std::vector<IMAGE> ims_bee_w;
+extern std::vector<IMAGE> ims_bee_a;
+extern std::vector<IMAGE> ims_bee_s;
+extern std::vector<IMAGE> ims_bee_d;
 // À˛Õº∆¨
 extern std::vector<IMAGE> ims_tower1;
 extern std::vector<IMAGE> ims_tower2;
@@ -26,6 +36,8 @@ extern IMAGE im_arrow;
 extern std::vector<IMAGE> ims_upgrade_button;
 
 extern IMAGE im_build;
+
+extern std::vector<IMAGE> ims_vfx_hit;
 
 void loadAllImages();
 

@@ -48,7 +48,17 @@ void detectAll() {
 int tempSecondCount = 0;
 // 更新每秒
 void updatePerSecond() {
-	monsters.push_back(new Monster(MonsterType::Goblin, Coordinate(6, 1)));
+	// 按7:2:1的概率生成哥布林，地狱犬，邪恶蜜蜂
+	if (getRate(0.7)) {
+		monsters.push_back(new Monster(MonsterType::Goblin, Coordinate(6, 1)));
+	}
+	else if(getRate(2.0/3)){
+		monsters.push_back(new Monster(MonsterType::Dog, Coordinate(6, 1)));
+	}
+	else {
+		monsters.push_back(new Monster(MonsterType::Bee, Coordinate(6, 1)));
+	}
+	
 	
 }
 // 更新所有游戏对象
