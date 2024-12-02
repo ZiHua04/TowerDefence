@@ -44,6 +44,8 @@ public:
 	void upgrade();
 	// 加载塔的信息
 	void loadTowerInfo();
+	// 扣血
+	void subHeart(int value);
 };
 #endif // !TOWER_H
 

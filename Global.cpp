@@ -54,3 +54,16 @@ void destoryEnemyBulletById(int id) {
 		enemyBullets.erase(it);
 	}
 }
+void destoryTowerById(int id) {
+	// 遍历map，找到id相同的元素并删除
+	for (auto it = towers.begin(); it != towers.end(); ) {
+		if (it->second->id == id) {
+			delete it->second;      // 销毁对象
+			it = towers.erase(it);   // 删除map中的元素，并更新迭代器
+			return;
+		}
+		else {
+			++it;  // 如果id不匹配，继续遍历
+		}
+	}
+}

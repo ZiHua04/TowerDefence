@@ -108,3 +108,13 @@ void Tower::loadTowerInfo()
 	this->attckRange = towerInfo[currentGrade].attackRange;
 	this->coinPerSecond = towerInfo[currentGrade].coinPerSecond;
 }
+
+void Tower::subHeart(int value) {
+	if (this->heart - value > 0) {
+		this->heart -= value;
+		return;
+	}
+	destoryTowerById(this->id);
+
+
+}

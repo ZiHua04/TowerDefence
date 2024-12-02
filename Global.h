@@ -30,5 +30,7 @@ void destoryMonsterById(int id);
 void destoryBulletById(int id);
 // Ïú»ÙµÐÈË×Óµ¯
 void destoryEnemyBulletById(int id);
+// ´Ý»ÙËþ
+void destoryTowerById(int id);
 
 #endif // _GLOBAL_H_

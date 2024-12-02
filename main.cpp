@@ -62,7 +62,7 @@ void detectAll() {
 				// 播放特效
 				vfxSystem->PlayVFX(enemyBullets[i]->x, enemyBullets[i]->y, VFXType::Hit);// 播放特效
 				// 减少生命值
-				// 
+				iter->second->subHeart(1);
 				// 销毁子弹
 				destoryEnemyBulletById(enemyBullets[i]->id);
 				return;

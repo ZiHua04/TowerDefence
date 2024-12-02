@@ -99,9 +99,9 @@ void Monster::update()
 	if (timeCount >= 1000) {
 		timeCount = 0;
 		if (type == MonsterType::Bee) {
-			
+			shoot();
 		}
-		shoot();
+		
 	}
 	
 }

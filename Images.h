@@ -32,6 +32,8 @@ extern std::vector<IMAGE> ims_coinTower2;
 extern std::vector<IMAGE> ims_coinTower3;
 // ¹­¼ýÍ¼Æ¬
 extern IMAGE im_arrow;
+// µÐÈË×Óµ¯Í¼Æ¬
+extern IMAGE im_enemyBullet;
 
 extern std::vector<IMAGE> ims_upgrade_button;
 

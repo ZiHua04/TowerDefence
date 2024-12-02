@@ -27,6 +27,8 @@ std::vector<IMAGE> ims_coinTower2;
 std::vector<IMAGE> ims_coinTower3;
 // 弓箭图片
 IMAGE im_arrow;
+// 敌人子弹图片
+IMAGE im_enemyBullet;
 // 受击特效
 std::vector<IMAGE> ims_vfx_hit;
 std::vector<IMAGE> ims_upgrade_button;
@@ -151,6 +153,7 @@ void loadAllImages() {
 	// 加载弓箭图片
 	loadimage(&im_arrow, _T("res/images/Tower/bullet.png"));
 	printf_s("弓箭图片加载完毕");
-
-	
+	// 加载敌人子弹图片
+	loadimage(&im_enemyBullet, _T("res/images/Monster/EnemyBullet/2.png"));
+	printf_s("敌人图片加载完毕");
 }

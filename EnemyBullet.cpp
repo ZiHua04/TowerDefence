@@ -24,7 +24,7 @@ void EnemyBullet::move()
 		vx = 5 * dis_x / lenght;
 		vy = 5 * dis_y / lenght;
 		float angle = atan(vy / vx);
-		rotateimage(&im_bullet, &im_arrow, -angle, 0UL, true);
+		rotateimage(&im_bullet, &im_enemyBullet, -angle, 0UL, true);
 	}
 	catch (const std::exception&)
 	{
