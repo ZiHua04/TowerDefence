@@ -67,8 +67,19 @@ struct MonsterInfo {
     float im_width;
     float im_height;
 };
+// ======= 塔的信息 =======
+struct TowerInfo {
+
+    int heart;
+    float speed;
+    int upgradeCost;
+    float attackRange;
+    int coinPerSecond;
+};
 
 extern std::map<MonsterType, MonsterInfo> monsterInfo;
+
+extern std::map<int, TowerInfo> towerInfo;
 
 // ======= 坐标结构 =======
 struct Coordinate {

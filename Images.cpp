@@ -149,7 +149,7 @@ void loadAllImages() {
 	}
 
 	// ¼ÓÔØ¹­¼ıÍ¼Æ¬
-	loadimage(&im_arrow, _T("res/images/Tower/arrow.png"));
+	loadimage(&im_arrow, _T("res/images/Tower/bullet.png"));
 	printf_s("¹­¼ıÍ¼Æ¬¼ÓÔØÍê±Ï");
 
 	

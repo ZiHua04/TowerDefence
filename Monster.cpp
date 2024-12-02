@@ -1,6 +1,8 @@
 #include "Monster.h"
 #include "EasyXPng.h"
-
+#include "Global.h"
+#include "EnemyBullet.h"
+#include "Toolkit.h"
 Monster::Monster(MonsterType type, Coordinate coordinate) {
     // 初始化id
     this->id = ++MonsterId;
@@ -60,6 +62,10 @@ void Monster::draw()
         aniId %= ims_monster.size();
     }
 	drawHeart();
+	if (type == MonsterType::Bee) {
+		setlinecolor(RED);
+		circle(this->x, this->y, 150);
+	}
 }
 
 void Monster::move()
@@ -89,6 +95,15 @@ void Monster::update()
 {
     draw();// 绘制
     move();// 移动
+	timeCount += 5;
+	if (timeCount >= 1000) {
+		timeCount = 0;
+		if (type == MonsterType::Bee) {
+			
+		}
+		shoot();
+	}
+	
 }
 
 Coordinate Monster::findNext()
@@ -136,5 +151,25 @@ Coordinate Monster::findNext()
 
 void Monster::subHeart(int value)
 {
+	
 	this->heart -= value;
+}
+
+void Monster::shoot()
+{
+	float cx = this->x + this->width / 2;
+	float cy = this->y + this->height / 2;
+	std::map<Coordinate, Tower*>::iterator iter;
+	for (iter = towers.begin(); iter != towers.end(); iter++) {
+		//cout << iter->first << " : " << iter->second << endl;
+		float xmin = iter->second->x;
+		float ymin = iter->second->y;
+		float xmax = xmin + iter->second->width;
+		float ymax = ymin + iter->second->height;
+		if (isCircleRectangleIntersect(cx, cy, 150, xmin, ymin, xmax, ymax)) {
+			enemyBullets.push_back(new EnemyBullet(x, y, iter->second));
+			return;
+		}
+	}
+	
 }

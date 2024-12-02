@@ -7,8 +7,8 @@ Bullet::Bullet(float x, float y, Monster* target)
 	targetMonster = target;
 	this->x = x;
 	this->y = y;
-	this->width = 14;
-	this->height = 3;
+	this->width = im_arrow.getwidth();
+	this->height = im_arrow.getheight();
 }
 void Bullet::move(){
 	x += vx;
@@ -21,6 +21,8 @@ void Bullet::move(){
 		float lenght = sqrt(pow(dis_x, 2) + pow(dis_y, 2));
 		vx = 5 * dis_x / lenght;
 		vy = 5 * dis_y / lenght;
+		float angle = atan(vy / vx);
+		rotateimage(&im_bullet, &im_arrow, -angle, 0UL, true);
 	}
 	catch (const std::exception&)
 	{
@@ -36,5 +38,5 @@ void Bullet::update()
 
 void Bullet::draw()
 {
-	putimagePng(x, y, &im_arrow);
+	putimagePng(x, y, &im_bullet);
 }

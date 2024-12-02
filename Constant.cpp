@@ -31,6 +31,11 @@ std::map<MonsterType, MonsterInfo> monsterInfo = {
     {MonsterType::Bee, {10, 0.5, 10, 47, 56}},
     {MonsterType::Dog, {5, 3, 10, 47, 56}}
 };
+std::map<int, TowerInfo> towerInfo = {
+    {1, {5, 0.5, 10, 150, 1}},
+    {2, {10, 0.3, 20, 200, 2}},
+    {3, {20, 0.2, 40, 220, 3}}
+};
 
 std::vector<IMAGE> getImagesByTypeAndDirection(MonsterType type, char direction) {
     switch (direction) {

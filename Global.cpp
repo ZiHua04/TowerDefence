@@ -1,5 +1,5 @@
 #include "Global.h"
-
+#include "EnemyBullet.h"
 // 怪物
 std::vector<Monster*> monsters;
 // 升级按钮
@@ -8,8 +8,12 @@ ClickButton* clickButton = new ClickButton();
 std::map<Coordinate, Tower*> towers;
 // 子弹
 std::vector<Bullet*> bullets;
+// 敌人子弹
+std::vector<EnemyBullet*> enemyBullets;
 // 金币系统
 CoinSystem* coinSystem = new CoinSystem();
+// 特效系统
+VFXSystem* vfxSystem = new VFXSystem();
 
 void destoryMonsterById(int id) {
 	// 使用 std::find_if 查找
@@ -35,5 +39,18 @@ void destoryBulletById(int id)
 		delete* it;
 		// 从 vector 中移除指针
 		bullets.erase(it);
+	}
+}
+
+void destoryEnemyBulletById(int id) {
+	// 使用 std::find_if 查找
+	auto it = std::find_if(enemyBullets.begin(), enemyBullets.end(), [id](EnemyBullet* enemyBullet) {
+		return (enemyBullet->id == id); // 比较对象的 id
+		});
+	if (it != enemyBullets.end()) {
+		// 释放内存
+		delete* it;
+		// 从 vector 中移除指针
+		enemyBullets.erase(it);
 	}
 }

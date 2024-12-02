@@ -6,6 +6,8 @@
 static int bulletId = 0;
 class Bullet
 {
+private:
+	IMAGE im_bullet;
 public:
 	int id;
 	float x, y;

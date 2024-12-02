@@ -37,8 +37,34 @@ void detectAll() {
 			Bullet* bullet = bullets[i];
 			Monster* monster = monsters[j];
 			if (DetectTwoRectangle(bullet->x, bullet->y, monster->x-monster->width/2, monster->y-monster->heart/2, bullet->width, bullet->height, monster->width, monster->height)) {
-				destoryBulletById(bullet->id);
-				monster->subHeart(1);
+				destoryBulletById(bullet->id);// 销毁子弹
+				vfxSystem->PlayVFX(monster->x, monster->y, VFXType::Hit);// 播放特效
+				monster->subHeart(1); // 减少生命值
+				return;
+			}
+		}
+	}
+	// 处理敌人子弹和塔
+	for (int i = 0; i < enemyBullets.size(); i++) {
+		std::map<Coordinate, Tower*>::iterator iter;
+		for (iter = towers.begin(); iter != towers.end(); iter++) {
+			//cout << iter->first << " : " << iter->second << endl;
+			float x1 = iter->second->x;
+			float y1 = iter->second->y;
+			float width1 = iter->second->width;
+			float height1 = iter->second->height;
+			float x2 = enemyBullets[i]->x;
+			float y2 = enemyBullets[i]->y;
+			float width2 = enemyBullets[i]->width;
+			float height2 = enemyBullets[i]->height;
+			if (DetectTwoRectangle(x1, y1, x2, y2, width1, height1, width2, height2)) {
+				
+				// 播放特效
+				vfxSystem->PlayVFX(enemyBullets[i]->x, enemyBullets[i]->y, VFXType::Hit);// 播放特效
+				// 减少生命值
+				// 
+				// 销毁子弹
+				destoryEnemyBulletById(enemyBullets[i]->id);
 				return;
 			}
 		}
@@ -88,7 +114,12 @@ void updateAll() {
 		bullets[i]->update();
 	}
 
+	for (int i = 0; i < enemyBullets.size(); i++) {
+		enemyBullets[i]->update();
+	}
+
 	coinSystem->update();
+	vfxSystem->update();
 
 	tempSecondCount+=5;
 	if (tempSecondCount >= 1000) {

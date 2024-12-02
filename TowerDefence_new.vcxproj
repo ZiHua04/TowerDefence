@@ -145,6 +145,7 @@
     <ClInclude Include="CoinSystem.h" />
     <ClInclude Include="Constant.h" />
     <ClInclude Include="EasyXPng.h" />
+    <ClInclude Include="EnemyBullet.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="Images.h" />
@@ -152,18 +153,21 @@
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Toolkit.h" />
     <ClInclude Include="Tower.h" />
+    <ClInclude Include="VFXSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="ClickButton.cpp" />
     <ClCompile Include="CoinSystem.cpp" />
     <ClCompile Include="Constant.cpp" />
+    <ClCompile Include="EnemyBullet.cpp" />
     <ClCompile Include="Global.cpp" />
     <ClCompile Include="Images.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Toolkit.cpp" />
     <ClCompile Include="Tower.cpp" />
+    <ClCompile Include="VFXSystem.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

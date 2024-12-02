@@ -14,7 +14,12 @@ Tower::Tower(TowerType type, Coordinate coordinate)
 	this->x = col * BLOCK_WIDTH + BLOCK_WIDTH / 2;
 	this->y = row * BLOCK_HEIGHT + BLOCK_HEIGHT / 2;
 	this->ims_tower = getTowerImages(type, 1);
+
+	this->currentGrade = 1;
+	loadTowerInfo();
 }
+
+
 
 void Tower::draw() {
 	putimagePng(x-width/2, y-height/2, &ims_tower[aniId]);
@@ -83,7 +88,23 @@ void Tower::addCoin()
 
 void Tower::upgrade()
 {
+	// 检查是否满级
 	if (currentGrade >= 3) return;
+	// 检查是否有足够金币
+	if (true) {
+
+	}
 	currentGrade++;
+	loadTowerInfo();
 	this->ims_tower = getTowerImages(type, currentGrade);
+	
+}
+
+void Tower::loadTowerInfo()
+{
+	this->heart = towerInfo[currentGrade].heart;
+	this->speed = towerInfo[currentGrade].speed;
+	this->upgradeCost = towerInfo[currentGrade].upgradeCost;
+	this->attckRange = towerInfo[currentGrade].attackRange;
+	this->coinPerSecond = towerInfo[currentGrade].coinPerSecond;
 }

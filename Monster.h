@@ -23,6 +23,8 @@ public:
 	float speed;// 速度,单位是block_width/秒
 	float dropCoins;// 掉落金币
 
+	int timeCount = 0;
+
 	Coordinate currentCoordinate; // 当前坐标
 	Coordinate lastCoordinate; // 上一个坐标
 
@@ -38,6 +40,9 @@ public:
 	Coordinate findNext(); // 寻找下一个坐标
 
 	void subHeart(int value);
+
+	// 向塔射击，只有蜜蜂可以
+	void shoot();
 };
 
 

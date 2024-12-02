@@ -32,7 +32,15 @@ enum class TowerType {
 	Attack = 0, // 攻击塔
 	Coin, // 金币塔
 };
+// 表示特效类型
+enum class VFXType {
+	Hit = 0,
+};
+// 表示特效播放类型
+enum class VFXPlayClass {
+	Once = 0,
 
+};
 
 #endif // !ENUM_H
 
