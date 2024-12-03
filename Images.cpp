@@ -39,6 +39,11 @@ std::vector<IMAGE> ims_upgrade_button;
 
 IMAGE im_build;
 
+//铲子图片
+IMAGE im_spade;
+// 错误按钮
+IMAGE im_wrong;
+
 void loadAllImages() {
 	TCHAR filename[80];
 	// 加载背景图片
@@ -179,4 +184,10 @@ void loadAllImages() {
 	// 加载敌人子弹图片
 	loadimage(&im_enemyBullet, _T("res/images/Monster/EnemyBullet/2.png"));
 	printf_s("敌人图片加载完毕");
+	// 加载铲子图片
+	loadimage(&im_spade, _T("res/images/UI/铲子.png"));
+	printf_s("铲子图片加载完毕");
+	// 加载错误图片
+	loadimage(&im_wrong, _T("res/images/UI/wrong.png"));
+	printf_s("错误图片加载完毕");
 }

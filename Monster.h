@@ -33,6 +33,7 @@ public:
 	MonsterType type; // 怪物类型
 
 	Monster(MonsterType type, Coordinate coordinate);
+	~Monster();
 	void drawHeart(); // 绘制怪物血条
 	void draw(); // 绘制怪物
 	void move(); // 移动怪物, 每0.1s调用一次

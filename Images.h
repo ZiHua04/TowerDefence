@@ -45,6 +45,11 @@ extern IMAGE im_build;
 
 extern std::vector<IMAGE> ims_vfx_hit;
 
+//²ù×ÓÍ¼Æ¬
+extern IMAGE im_spade;
+// ´íÎó°´Å¥
+extern IMAGE im_wrong;
+
 void loadAllImages();
 
 #endif // !IMAGES_H

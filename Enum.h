@@ -25,6 +25,7 @@ enum class MonsterType {
 enum class ClickButtonType {
 	Build = 0, // 建造
     Upgrade, // 升级
+	Delete, // 铲除
 	Hide, // 隐藏
 };
 // 表示塔的类型

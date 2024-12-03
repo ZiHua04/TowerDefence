@@ -1,5 +1,6 @@
 #include "Global.h"
 #include "EnemyBullet.h"
+ExMessage m;
 // ¹ÖÎï
 std::vector<Monster*> monsters;
 // Éı¼¶°´Å¥

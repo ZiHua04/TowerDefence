@@ -12,7 +12,7 @@
 void init() {
 	initgraph(WIDHT, HEIGHT); // 初始化图形窗口
 }
-ExMessage m;
+
 // 处理鼠标和键盘输入
 void input() {
 	if (!peekmessage(&m)) return;
@@ -103,7 +103,7 @@ void updateAll() {
 		}
 	}
 
-	clickButton->update();
+	
 
 	for (const auto& pair : towers) {
 		// pair.first 是键 (Coordinate)， pair.second 是值 (Tower*)
@@ -117,7 +117,7 @@ void updateAll() {
 	for (int i = 0; i < enemyBullets.size(); i++) {
 		enemyBullets[i]->update();
 	}
-
+	clickButton->update();
 	coinSystem->update();
 	vfxSystem->update();
 

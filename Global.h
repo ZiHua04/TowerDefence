@@ -10,6 +10,9 @@
 #include "CoinSystem.h"
 #include "VFXSystem.h"
 #include "EnemyBullet.h"
+
+extern ExMessage m;
+
 // ¹ÖÎï
 extern std::vector<Monster*> monsters;
 // Éý¼¶°´Å¥

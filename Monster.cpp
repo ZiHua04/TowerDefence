@@ -24,6 +24,11 @@ Monster::Monster(MonsterType type, Coordinate coordinate) {
 	this->type = type;
 }
 
+Monster::~Monster()
+{
+	coinSystem->addCoin(this->dropCoins, x, y);
+}
+
 void Monster::drawHeart()
 {
 	// ÑªÌõ¿í¶È

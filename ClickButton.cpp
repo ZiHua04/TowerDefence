@@ -14,9 +14,20 @@ ClickButton::ClickButton()
 
 void ClickButton::draw()
 {
-	if (this->type == ClickButtonType::Hide) return;
+	
+
+	if (this->type == ClickButtonType::Hide) {
+		// 绘制铲子图片
+		putimagePng(WIDHT - BLOCK_WIDTH, BLOCK_HEIGHT, &im_spade);
+		return;
+	}
 	switch (type)
 	{
+	case ClickButtonType::Delete:
+		putimagePng(WIDHT - BLOCK_WIDTH + im_wrong.getwidth()/2, BLOCK_HEIGHT + im_wrong.getheight()/2, &im_wrong);
+		putimagePng(m.x - im_spade.getwidth() / 2, m.y - im_spade.getheight() / 2, &im_spade);
+		
+		break;
 	case ClickButtonType::Build:
 		putimagePng(x, y, &im_build);
 		settextcolor(YELLOW);
@@ -56,6 +67,28 @@ void ClickButton::clickCoordinate(Coordinate coordinate)
 
 	switch (this->type)
 	{
+		case ClickButtonType::Delete:
+			if (coordinate.row == 1 && coordinate.col == COL - 1) {
+				hide();
+			}
+			// 判断是否可以建造
+			if (towerMap[coordinate.row][coordinate.col] == 0) {
+				// 可以建造
+				// 检查是否已经建造
+				for (const auto& pair : towers) {
+					// pair.first 是键 (Coordinate)， pair.second 是值 (Tower*)
+					if (pair.first == coordinate) {
+						// 这里已经建造
+						// 销毁该塔
+						coinSystem->addCoin(5, pair.second->x, pair.second->y);
+						destoryTowerById(pair.second->id);
+						hide();
+						return;
+					}
+				}
+			}
+
+			break;
 		case ClickButtonType::Build:
 			// 判断是否可以建造
 			if (towerMap[coordinate.row][coordinate.col] == 0) {
@@ -129,6 +162,10 @@ void ClickButton::clickCoordinate(Coordinate coordinate)
 			hide();
 			break;
         case ClickButtonType::Hide:
+			if (coordinate.row == 1 && coordinate.col == COL - 1) {
+				show(ClickButtonType::Delete, coordinate);
+			}
+
 			// 判断是否可以建造
 			if (towerMap[coordinate.row][coordinate.col] == 0) {
 				// 可以建造
