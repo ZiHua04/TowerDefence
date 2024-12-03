@@ -46,6 +46,8 @@ public:
 	void loadTowerInfo();
 	// ¿ÛÑª
 	void subHeart(int value);
+	// »æÖÆÑªÌõ
+	void drawHeart();
 };
 #endif // !TOWER_H
 

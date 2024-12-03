@@ -64,6 +64,7 @@ void Monster::draw()
 	drawHeart();
 	if (type == MonsterType::Bee) {
 		setlinecolor(RED);
+		setlinestyle(PS_DASHDOT);
 		circle(this->x, this->y, 150);
 	}
 }

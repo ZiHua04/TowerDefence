@@ -2,6 +2,7 @@
 #include "EasyXPng.h"
 #include "Images.h"
 #include "Global.h"
+#include "Toolkit.h"
 // 构造函数
 ClickButton::ClickButton()
 {
@@ -18,6 +19,9 @@ void ClickButton::draw()
 	{
 	case ClickButtonType::Build:
 		putimagePng(x, y, &im_build);
+		settextcolor(YELLOW);
+		drawText("10", x+30, y+10, 15);
+		drawText("10", x + width - 45, y + 10, 15);
 		break;
 	case ClickButtonType::Upgrade:
 		putimagePng(x, y, &ims_upgrade_button[aniId]);
@@ -27,9 +31,13 @@ void ClickButton::draw()
 			aniId++;
 			aniId %= ims_upgrade_button.size();
 		}
+		
+		int cost = towers[lastClickCoordinate]->upgradeCost;
+		settextcolor(YELLOW);
+		drawText(std::to_string(cost), x + width / 2 - 7, y + 15, 15);
 		break;
-	default:
-		break;
+
+	
 	}
 }
 void ClickButton::update()
@@ -77,11 +85,15 @@ void ClickButton::clickCoordinate(Coordinate coordinate)
                 // 点击的是建造按钮的右边
 				// 在这里建造
 				//towers.insert(std::pair<Coordinate, Tower*>(coordinate, new Tower(TowerType::Attack, coordinate)));
+				int cost = towerInfo[1].upgradeCost;
+				if (!coinSystem->subCoin(cost)) return;
 				towers.insert(std::make_pair(lastClickCoordinate, new Tower(TowerType::Attack, lastClickCoordinate)));
 			}
 			if (coordinate.row == lastClickCoordinate.row && coordinate.col == lastClickCoordinate.col - 1) {
 				// 点击的是建造按钮的左边
 				// 在这里建造
+				int cost = towerInfo[1].upgradeCost;
+				if (!coinSystem->subCoin(cost)) return;
 				towers.insert(std::make_pair(lastClickCoordinate, new Tower(TowerType::Coin, lastClickCoordinate)));
 			}
 			hide();

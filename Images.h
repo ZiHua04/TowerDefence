@@ -30,6 +30,10 @@ extern std::vector<IMAGE> ims_tower3;
 extern std::vector<IMAGE> ims_coinTower1;
 extern std::vector<IMAGE> ims_coinTower2;
 extern std::vector<IMAGE> ims_coinTower3;
+// ½ð±ÒÍ¼Æ¬
+extern std::vector<IMAGE> ims_coin;
+// °®ÐÄÍ¼Æ¬
+extern std::vector<IMAGE> ims_heart;
 // ¹­¼ýÍ¼Æ¬
 extern IMAGE im_arrow;
 // µÐÈË×Óµ¯Í¼Æ¬

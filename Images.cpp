@@ -25,6 +25,10 @@ std::vector<IMAGE> ims_tower3;
 std::vector<IMAGE> ims_coinTower1;
 std::vector<IMAGE> ims_coinTower2;
 std::vector<IMAGE> ims_coinTower3;
+// 金币图片
+std::vector<IMAGE> ims_coin;
+// 爱心图片
+std::vector<IMAGE> ims_heart;
 // 弓箭图片
 IMAGE im_arrow;
 // 敌人子弹图片
@@ -72,6 +76,7 @@ void loadAllImages() {
 		loadimage(&im, filename);
 		ims_monster_d.push_back(im);
 	}
+	printf_s("怪物图片加载完毕");
 	// 加载地狱犬图片
 	for (int i = 0; i < 6; i++) {
 		_stprintf_s(filename, _T("res/images/Monster/Dog/A/%d.png"), i);
@@ -91,6 +96,7 @@ void loadAllImages() {
 		loadimage(&im, filename);
 		ims_dog_d.push_back(im);
 	}
+	printf_s("地狱犬图片加载完毕");
 	// 加载邪恶蜜蜂图片
 	for (int i = 0; i < 6; i++) {
 		_stprintf_s(filename, _T("res/images/Monster/Bee/A/%d.png"), i);
@@ -142,6 +148,7 @@ void loadAllImages() {
 		loadimage(&im, filename);
 		ims_coinTower3.push_back(im);
 	}
+	printf_s("金币塔图片加载完毕");
 	// 加载受击特效
 	for (int i = 0; i < 12; i++) {
 		_stprintf_s(filename, _T("res/images/VFX/hit/%d.png"), i);
@@ -149,7 +156,23 @@ void loadAllImages() {
 		loadimage(&im, filename);
 		ims_vfx_hit.push_back(im);
 	}
-
+	printf_s("受击特效图片加载完毕");
+	// 加载金币图片
+	for (int i = 0; i < 15; i++) {
+		_stprintf_s(filename, _T("res/images/UI/coin/%d.png"), i);
+		IMAGE im;
+		loadimage(&im, filename);
+		ims_coin.push_back(im);
+	}
+	printf_s("金币图片加载完毕");
+	// 加载爱心图片
+	for (int i = 0; i < 8; i++) {
+		_stprintf_s(filename, _T("res/images/UI/heart/%d.png"), i);
+		IMAGE im;
+		loadimage(&im, filename);
+		ims_heart.push_back(im);
+	}
+	printf_s("爱心图片加载完毕");
 	// 加载弓箭图片
 	loadimage(&im_arrow, _T("res/images/Tower/bullet.png"));
 	printf_s("弓箭图片加载完毕");

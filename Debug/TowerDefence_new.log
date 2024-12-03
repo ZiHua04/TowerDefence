@@ -1,23 +1,16 @@
-﻿  Monster.cpp
-E:\Workspace\TowerDefence\Monster.cpp(15,44): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(16,45): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(20,27): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(38,142): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(38,97): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(38,80): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(38,21): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(45,149): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(45,104): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(45,85): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(45,26): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(49,198): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(49,121): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(49,85): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(49,26): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(57,50): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(57,25): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(67,23): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(67,14): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(77,16): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
-E:\Workspace\TowerDefence\Monster.cpp(78,19): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
+﻿  Tower.cpp
+E:\Workspace\TowerDefence\Tower.cpp(14,30): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+E:\Workspace\TowerDefence\Tower.cpp(15,31): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+E:\Workspace\TowerDefence\Tower.cpp(26,26): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Tower.cpp(26,15): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Tower.cpp(41,16): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Tower.cpp(41,13): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Tower.cpp(41,10): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Tower.cpp(74,20): warning C4018: “<”: 有符号/无符号不匹配
+E:\Workspace\TowerDefence\Tower.cpp(125,17): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
+E:\Workspace\TowerDefence\Tower.cpp(126,18): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
+E:\Workspace\TowerDefence\Tower.cpp(127,40): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Tower.cpp(127,24): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Tower.cpp(129,69): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\Workspace\TowerDefence\Tower.cpp(129,48): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
   TowerDefence_new.vcxproj -> E:\Workspace\TowerDefence\Debug\TowerDefence_new.exe

@@ -25,7 +25,7 @@ void VFXSystem::drawOnce()
 					return;
 				}
 			}
-			setlinecolor(RED);
+			settextcolor(RED);
 			drawText("-1", onceVFX[i]->x - onceVFX[i]->width / 2, onceVFX[i]->y - onceVFX[i]->height / 2, 10);
 			break;
 		

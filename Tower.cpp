@@ -22,6 +22,7 @@ Tower::Tower(TowerType type, Coordinate coordinate)
 
 
 void Tower::draw() {
+	
 	putimagePng(x-width/2, y-height/2, &ims_tower[aniId]);
 	aniCount++;
 	if (aniCount > ANI_MAX_COUNT) {
@@ -29,6 +30,8 @@ void Tower::draw() {
 		aniId++;
 		aniId %= ims_tower.size();
 	}
+
+	drawHeart();
 
 	switch (type)
 	{
@@ -91,9 +94,7 @@ void Tower::upgrade()
 	// 检查是否满级
 	if (currentGrade >= 3) return;
 	// 检查是否有足够金币
-	if (true) {
-
-	}
+	if (!coinSystem->subCoin(upgradeCost)) return;
 	currentGrade++;
 	loadTowerInfo();
 	this->ims_tower = getTowerImages(type, currentGrade);
@@ -117,4 +118,13 @@ void Tower::subHeart(int value) {
 	destoryTowerById(this->id);
 
 
+}
+
+void Tower::drawHeart()
+{
+	float im_width = ims_heart[0].getwidth();
+	float im_height = ims_heart[0].getheight();
+	putimagePng(x-width/2 + 15, y+height/2-10, &ims_heart[aniId*2]);
+	settextcolor(RED);
+	drawText(std::to_string(heart), x + width / 2 - 20, y + height / 2 - 10, 15);
 }
