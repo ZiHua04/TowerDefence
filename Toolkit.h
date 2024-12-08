@@ -18,7 +18,7 @@ bool DetectTwoCircle(float x1, float y1, float x2, float y2, int r1, int r2);
 std::wstring stringToWString(const std::string& str);
 
 // 在指定坐标 (x, y) 处显示字符串
-void drawText(const std::string& text, int x, int y, int fontSize);
+void drawText(const std::string& text, int x, int y, int fontSize = 20);
 
 
 #endif // !TOOLKIT_H

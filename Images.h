@@ -42,14 +42,22 @@ extern IMAGE im_enemyBullet;
 extern std::vector<IMAGE> ims_upgrade_button;
 
 extern IMAGE im_build;
-
+// 受击特效
 extern std::vector<IMAGE> ims_vfx_hit;
-
+// 大爆炸特效
+extern std::vector<IMAGE> ims_vfx_boom;
+// 冰魔法特效
+extern std::vector<IMAGE> ims_vfx_ice;
+// 收冰冻特效
+extern std::vector<IMAGE> ims_vfx_beIced;
 //铲子图片
 extern IMAGE im_spade;
 // 错误按钮
 extern IMAGE im_wrong;
-
+// 冰冻道具
+extern IMAGE im_ice;
+// 炸弹道具
+extern IMAGE im_bomb;
 void loadAllImages();
 
 #endif // !IMAGES_H

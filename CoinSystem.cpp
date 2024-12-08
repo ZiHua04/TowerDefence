@@ -17,7 +17,7 @@ void CoinSystem::addCoin(int value, float x, float y) {
 }
 
 bool CoinSystem::subCoin(int value) {
-	if (getCoin() - value <= 0) return false;
+	if (getCoin() - value < 0) return false;
 	this->currentCoin -= value;
 }
 

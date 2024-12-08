@@ -57,6 +57,9 @@
     <ClInclude Include="EnemyBullet.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="PropSystem.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -93,6 +96,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="EnemyBullet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PropSystem.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

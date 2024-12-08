@@ -10,6 +10,7 @@
 #include "CoinSystem.h"
 #include "VFXSystem.h"
 #include "EnemyBullet.h"
+#include "PropSystem.h"
 
 extern ExMessage m;
 
@@ -27,6 +28,8 @@ extern std::vector<EnemyBullet*> enemyBullets;
 extern CoinSystem* coinSystem;
 // 特效系统
 extern VFXSystem* vfxSystem;
+// 道具系统
+extern PropSystem* propSystem;
 // 摧毁怪物
 void destoryMonsterById(int id);
 // 摧毁子弹

@@ -26,6 +26,8 @@ constexpr int TOWER_HEIGHT = 61;
 
 constexpr int ANI_MAX_COUNT = 10;  // 动画播放速度
 constexpr int GAME_TIME = 120;     // 游戏时间
+
+constexpr int TICK_TIME = 5;
 // 0:空地 1:道路
 const int roadMap[ROW][COL] = {
 	{0,0,0,0,0,1,0,0,0,0,0},

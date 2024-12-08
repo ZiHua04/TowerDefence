@@ -95,5 +95,6 @@ void drawText(const std::string& text, int x, int y, int fontSize) {
 	setbkmode(TRANSPARENT);
 	settextstyle(fontSize, 0, _T("黑体"));//设置字号、字体
 	outtextxy(x, y, wtext.c_str());              // 使用 outtextxy 绘制宽字符字符串
+	
 }
 #pragma endregion

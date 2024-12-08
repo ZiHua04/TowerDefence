@@ -25,6 +25,8 @@ void input() {
 		int col = x / BLOCK_WIDTH;
 		int row = y / BLOCK_HEIGHT;
 		if (col < 0 || col >= COL || row < 0 || row >= ROW) return;
+		if (propSystem->click(x, y)) return;
+
 		clickButton->clickCoordinate(Coordinate(row, col));
 		break;
 	}
@@ -38,7 +40,7 @@ void detectAll() {
 			Monster* monster = monsters[j];
 			if (DetectTwoRectangle(bullet->x, bullet->y, monster->x-monster->width/2, monster->y-monster->heart/2, bullet->width, bullet->height, monster->width, monster->height)) {
 				destoryBulletById(bullet->id);// 销毁子弹
-				vfxSystem->PlayVFX(monster->x, monster->y, VFXType::Hit);// 播放特效
+				
 				monster->subHeart(1); // 减少生命值
 				return;
 			}
@@ -86,21 +88,13 @@ void updatePerSecond() {
 	}
 	
 	
+	
 }
 // 更新所有游戏对象
 void updateAll() {
 	for (int i = 0; i < monsters.size(); i++) {
 		monsters[i]->update();
-		if (monsters[i]->isArrived) {
-			destoryMonsterById(monsters[i]->id);
-			i--;
-			continue;
-		}
-		if (monsters[i]->heart < 0) {
-			destoryMonsterById(monsters[i]->id);
-			i--;
-			continue;
-		}
+		
 	}
 
 	
@@ -120,8 +114,9 @@ void updateAll() {
 	clickButton->update();
 	coinSystem->update();
 	vfxSystem->update();
+	propSystem->update();
 
-	tempSecondCount+=5;
+	tempSecondCount += TICK_TIME;
 	if (tempSecondCount >= 1000) {
 		updatePerSecond();
 		tempSecondCount = 0;
@@ -183,7 +178,7 @@ void ShowPlayingScene() {
 		updateAll();
 		FlushBatchDraw();
 
-		Sleep(5);
+		Sleep(TICK_TIME);
 		
 		
 	}

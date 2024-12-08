@@ -150,6 +150,7 @@
     <ClInclude Include="Global.h" />
     <ClInclude Include="Images.h" />
     <ClInclude Include="Monster.h" />
+    <ClInclude Include="PropSystem.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Toolkit.h" />
     <ClInclude Include="Tower.h" />
@@ -165,6 +166,7 @@
     <ClCompile Include="Images.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="PropSystem.cpp" />
     <ClCompile Include="Toolkit.cpp" />
     <ClCompile Include="Tower.cpp" />
     <ClCompile Include="VFXSystem.cpp" />

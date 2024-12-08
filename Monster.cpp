@@ -3,6 +3,7 @@
 #include "Global.h"
 #include "EnemyBullet.h"
 #include "Toolkit.h"
+#include <thread>
 Monster::Monster(MonsterType type, Coordinate coordinate) {
     // 初始化id
     this->id = ++MonsterId;
@@ -26,7 +27,7 @@ Monster::Monster(MonsterType type, Coordinate coordinate) {
 
 Monster::~Monster()
 {
-	coinSystem->addCoin(this->dropCoins, x, y);
+	
 }
 
 void Monster::drawHeart()
@@ -39,6 +40,7 @@ void Monster::drawHeart()
 	int heartValuePerRow = 10;
 	// 绘制血条外框
 	setlinecolor(BLACK);
+	setlinestyle(PS_SOLID, 1);
 	for (int i = 0; i < this->heart; i += heartValuePerRow) {
 		rectangle(this->x - heartWidth / 2, this->y - this->height / 2 - heartHeight - i*1.2, this->x + heartWidth / 2, this->y - this->height / 2 - i * 1.2);
 	}
@@ -61,7 +63,7 @@ void Monster::draw()
 {
     putimagePng(this->x - this->width/2, this->y - this->height/2, &ims_monster[aniId]);
     this->aniCount++;
-    if (aniCount > ANI_MAX_COUNT) {
+    if (aniCount > ANI_MAX_COUNT * 1.0 / this->speed) {
         aniCount = 0;
         aniId++;
         aniId %= ims_monster.size();
@@ -71,6 +73,9 @@ void Monster::draw()
 		setlinecolor(RED);
 		setlinestyle(PS_DASHDOT);
 		circle(this->x, this->y, 150);
+	}
+	if (this->isIced) {
+		putimagePng(x - ims_vfx_beIced[15].getwidth()/2, y- ims_vfx_beIced[15].getheight()/2, &ims_vfx_beIced[15]);
 	}
 }
 
@@ -82,8 +87,11 @@ void Monster::move()
 	// 目标坐标
 	float targetX = currentCoordinate.col * BLOCK_WIDTH + BLOCK_WIDTH / 2;
     float targetY = currentCoordinate.row * BLOCK_HEIGHT + BLOCK_HEIGHT / 2;
-	if ((this->x > targetX - BLOCK_WIDTH*this->speed/200 && this->x < targetX + BLOCK_WIDTH*this->speed/200)
-		&& (this->y > targetY - BLOCK_HEIGHT*this->speed/200 && this->y < targetY + BLOCK_HEIGHT * this->speed/200)) {
+	/*if ((this->x > targetX - BLOCK_WIDTH*this->speed/200 && this->x < targetX + BLOCK_WIDTH*this->speed/200)
+		&& (this->y > targetY - BLOCK_HEIGHT*this->speed/200 && this->y < targetY + BLOCK_HEIGHT * this->speed/200)) */
+	if ((this->x > targetX - 10 && this->x < targetX + 10)
+		&& (this->y > targetY - 10 && this->y < targetY + 10))
+	{
 		// 到达方块中心
 		Coordinate temp = currentCoordinate;
 		currentCoordinate = findNext();
@@ -108,6 +116,15 @@ void Monster::update()
 			shoot();
 		}
 		
+	}
+
+	if (this->isArrived) {
+
+		destoryMonsterById(this->id);
+	}
+	if (this->heart <= 0) {
+		coinSystem->addCoin(this->dropCoins, this->x, this->y);
+		destoryMonsterById(this->id);
 	}
 	
 }
@@ -157,7 +174,8 @@ Coordinate Monster::findNext()
 
 void Monster::subHeart(int value)
 {
-	
+	vfxSystem->addText("-"+std::to_string(value), this->x, this->y, 0.2, RED, 20);
+	vfxSystem->PlayVFX(x, y, VFXType::Hit);// 播放特效
 	this->heart -= value;
 }
 
@@ -178,4 +196,25 @@ void Monster::shoot()
 		}
 	}
 	
+}
+
+void Monster::beIced()
+{
+	this->isIced = true;
+	this->speed /= 2;
+	this->vx /= 2;
+	this->vy /= 2;
+	// 显示特效
+	vfxSystem->PlayVFX(x, y, VFXType::BeIced);
+	std::thread([this]() {
+		std::this_thread::sleep_for(std::chrono::seconds(10));
+		if (this == nullptr) return;
+		this->recover();
+		}).detach();
+}
+
+void Monster::recover()
+{	
+	this->isIced = false;
+	this->speed = monsterInfo[type].speed;
 }

@@ -35,6 +35,13 @@ IMAGE im_arrow;
 IMAGE im_enemyBullet;
 // 受击特效
 std::vector<IMAGE> ims_vfx_hit;
+// 大爆炸特效
+std::vector<IMAGE> ims_vfx_boom;
+// 冰魔法特效
+std::vector<IMAGE> ims_vfx_ice;
+// 收冰冻特效
+std::vector<IMAGE> ims_vfx_beIced;
+
 std::vector<IMAGE> ims_upgrade_button;
 
 IMAGE im_build;
@@ -43,6 +50,10 @@ IMAGE im_build;
 IMAGE im_spade;
 // 错误按钮
 IMAGE im_wrong;
+// 冰冻道具
+IMAGE im_ice;
+// 炸弹道具
+IMAGE im_bomb;
 
 void loadAllImages() {
 	TCHAR filename[80];
@@ -162,6 +173,30 @@ void loadAllImages() {
 		ims_vfx_hit.push_back(im);
 	}
 	printf_s("受击特效图片加载完毕");
+	// 加载大爆炸特效
+	for (int i = 0; i < 10; i++) {
+		_stprintf_s(filename, _T("res/images/VFX/Boom/%d.png"), i);
+		IMAGE im;
+		loadimage(&im, filename);
+		ims_vfx_boom.push_back(im);
+	}
+	printf_s("大爆炸特效图片加载完毕");
+	// 加载冰魔法特效
+	for (int i = 0; i < 36; i++) {
+		_stprintf_s(filename, _T("res/images/VFX/Ice/%d.png"), i);
+		IMAGE im;
+		loadimage(&im, filename);
+		ims_vfx_ice.push_back(im);
+	}
+	printf_s("冰魔法特效图片加载完毕");
+	// 加载受冰冻特效
+	for (int i = 0; i < 35; i++) {
+		_stprintf_s(filename, _T("res/images/VFX/BeIced/%d.png"), i);
+		IMAGE im;
+		loadimage(&im, filename);
+		ims_vfx_beIced.push_back(im);
+	}
+	printf_s("受冰冻特效图片加载完毕");
 	// 加载金币图片
 	for (int i = 0; i < 15; i++) {
 		_stprintf_s(filename, _T("res/images/UI/coin/%d.png"), i);
@@ -190,4 +225,10 @@ void loadAllImages() {
 	// 加载错误图片
 	loadimage(&im_wrong, _T("res/images/UI/wrong.png"));
 	printf_s("错误图片加载完毕");
+	// 加载冰冻图片
+	loadimage(&im_ice, _T("res/images/UI/冰冻.png"));
+	printf_s("冰冻加载完毕");
+	// 加载炸弹图片
+	loadimage(&im_bomb, _T("res/images/UI/炸弹.png"));
+	printf_s("炸弹加载完毕");
 }

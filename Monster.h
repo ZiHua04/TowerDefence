@@ -32,6 +32,8 @@ public:
 
 	MonsterType type; // 怪物类型
 
+	bool isIced = false;
+
 	Monster(MonsterType type, Coordinate coordinate);
 	~Monster();
 	void drawHeart(); // 绘制怪物血条
@@ -44,6 +46,10 @@ public:
 
 	// 向塔射击，只有蜜蜂可以
 	void shoot();
+	// 被冰冻
+	void beIced();
+	// 恢复
+	void recover();
 };
 
 

@@ -15,6 +15,8 @@ std::vector<EnemyBullet*> enemyBullets;
 CoinSystem* coinSystem = new CoinSystem();
 // 特效系统
 VFXSystem* vfxSystem = new VFXSystem();
+// 道具系统
+PropSystem* propSystem = new PropSystem();
 
 void destoryMonsterById(int id) {
 	// 使用 std::find_if 查找
