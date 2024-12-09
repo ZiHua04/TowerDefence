@@ -20,7 +20,7 @@ public:
 class CoinSystem
 {
 private:
-	int currentCoin = 40; // 初始金币
+	int currentCoin = 999999; // 初始金币
 	int aniId = 0;
 	int aniCount = 0;
 public:

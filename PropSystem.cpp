@@ -134,6 +134,8 @@ bool PropSystem::click(float x, float y)
 
 void PropSystem::clickIce()
 {
+	// 检查金币是否够
+	if (!coinSystem->subCoin(iceProp->cost)) { return; }
 	// 检查冷却时间
 	if (iceProp->countTime > 0) return;
 	this->isUsingProp = true;
@@ -171,7 +173,7 @@ void PropSystem::useIce()
 			monster->beIced();
 		}
 	}
-	//iceProp->countTime = iceProp->totalCoolTime;
+	iceProp->countTime = iceProp->totalCoolTime;
 }
 void PropSystem::useBomb()
 {
@@ -186,12 +188,14 @@ void PropSystem::useBomb()
 			monster->subHeart(10);
 		}
 	}
-	//bombProp->countTime = bombProp->totalCoolTime;
+	bombProp->countTime = bombProp->totalCoolTime;
 }
 
 
 void PropSystem::clickBomb()
 {
+	// 检查金币是否够
+	if (!coinSystem->subCoin(bombProp->cost)) { return; }
 	// 检查冷却时间
 	if (bombProp->countTime > 0) return;
 	this->isUsingProp = true;

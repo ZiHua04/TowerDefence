@@ -17,6 +17,8 @@ CoinSystem* coinSystem = new CoinSystem();
 VFXSystem* vfxSystem = new VFXSystem();
 // 道具系统
 PropSystem* propSystem = new PropSystem();
+// 怪物生产器
+MonsterCreator* monsterCreator = new MonsterCreator(120, {30,60,100});
 
 void destoryMonsterById(int id) {
 	// 使用 std::find_if 查找

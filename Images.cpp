@@ -54,6 +54,12 @@ IMAGE im_wrong;
 IMAGE im_ice;
 // 炸弹道具
 IMAGE im_bomb;
+// 波次旗帜
+IMAGE im_ui_waveflag;
+// boss旗帜
+IMAGE im_ui_bossflag;
+// 警告图片
+IMAGE im_ui_warning;
 
 void loadAllImages() {
 	TCHAR filename[80];
@@ -231,4 +237,13 @@ void loadAllImages() {
 	// 加载炸弹图片
 	loadimage(&im_bomb, _T("res/images/UI/炸弹.png"));
 	printf_s("炸弹加载完毕");
+	// 加载波次旗帜图片
+	loadimage(&im_ui_waveflag, _T("res/images/UI/waveflag.png"));
+	printf_s("波次旗帜加载完毕");
+	// 加载关底旗帜图片
+	loadimage(&im_ui_bossflag, _T("res/images/UI/bossflag.png"));
+	printf_s("关底旗帜加载完毕");
+	// 加载警告图片
+	loadimage(&im_ui_warning, _T("res/images/UI/warning.png"));
+	printf_s("警告加载完毕");
 }

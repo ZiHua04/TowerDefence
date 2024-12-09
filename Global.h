@@ -11,7 +11,7 @@
 #include "VFXSystem.h"
 #include "EnemyBullet.h"
 #include "PropSystem.h"
-
+#include "MonsterCreator.h"
 extern ExMessage m;
 
 // 怪物
@@ -30,6 +30,8 @@ extern CoinSystem* coinSystem;
 extern VFXSystem* vfxSystem;
 // 道具系统
 extern PropSystem* propSystem;
+// 怪物生产器
+extern MonsterCreator* monsterCreator;
 // 摧毁怪物
 void destoryMonsterById(int id);
 // 摧毁子弹

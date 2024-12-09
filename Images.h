@@ -58,6 +58,12 @@ extern IMAGE im_wrong;
 extern IMAGE im_ice;
 // 炸弹道具
 extern IMAGE im_bomb;
+// 波次旗帜
+extern IMAGE im_ui_waveflag;
+// boss旗帜
+extern IMAGE im_ui_bossflag;
+// 警告图片
+extern IMAGE im_ui_warning;
 void loadAllImages();
 
 #endif // !IMAGES_H

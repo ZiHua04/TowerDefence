@@ -11,6 +11,7 @@
 // 初始化一把游戏
 void init() {
 	initgraph(WIDHT, HEIGHT); // 初始化图形窗口
+	monsterCreator->startCreate();
 }
 
 // 处理鼠标和键盘输入
@@ -76,16 +77,7 @@ void detectAll() {
 int tempSecondCount = 0;
 // 更新每秒
 void updatePerSecond() {
-	// 按7:2:1的概率生成哥布林，地狱犬，邪恶蜜蜂
-	if (getRate(0.7)) {
-		monsters.push_back(new Monster(MonsterType::Goblin, Coordinate(6, 1)));
-	}
-	else if(getRate(2.0/3)){
-		monsters.push_back(new Monster(MonsterType::Dog, Coordinate(6, 1)));
-	}
-	else {
-		monsters.push_back(new Monster(MonsterType::Bee, Coordinate(6, 1)));
-	}
+	
 	
 	
 	
@@ -115,6 +107,7 @@ void updateAll() {
 	coinSystem->update();
 	vfxSystem->update();
 	propSystem->update();
+	monsterCreator->update();
 
 	tempSecondCount += TICK_TIME;
 	if (tempSecondCount >= 1000) {

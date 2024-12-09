@@ -121,6 +121,7 @@ void Monster::update()
 	if (this->isArrived) {
 
 		destoryMonsterById(this->id);
+		return;
 	}
 	if (this->heart <= 0) {
 		coinSystem->addCoin(this->dropCoins, this->x, this->y);
