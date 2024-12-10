@@ -2,7 +2,6 @@
 #ifndef CLICKBUTTON_H
 #define CLICKBUTTON_H
 
-
 #include <vector>
 #include <graphics.h>
 #include "Constant.h"
@@ -17,7 +16,6 @@ public:
 	float width = 0, height = 0;
 	int aniId = 0;
 	int aniCount = 0;
-
 
 	// ¹¹Ôìº¯Êý
 	ClickButton();
@@ -34,6 +32,3 @@ public:
 };
 
 #endif // !CLICKBUTTON_H
-
-
-

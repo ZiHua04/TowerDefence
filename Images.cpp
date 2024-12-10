@@ -1,4 +1,10 @@
 #include "Images.h"
+
+// 首页背景图片
+IMAGE im_front_bk;
+// 关卡图片
+IMAGE im_front_level;
+
 IMAGE im_bk;// 背景图片
 
 // 怪物图片
@@ -67,6 +73,13 @@ IMAGE im_ui_warning;
 
 void loadAllImages() {
 	TCHAR filename[80];
+	// 加载首页背景图
+	loadimage(&im_front_bk, _T("res/images/首页背景图.png"));
+	printf_s("首页背景图加载完毕");
+	// 加载关卡图片
+	loadimage(&im_front_level, _T("res/images/ui/LevelIcon.png"));
+	printf_s("关卡图片加载完毕");
+
 	// 加载背景图片
 	loadimage(&im_bk, _T("res/images/背景图.png"));
 	printf_s("背景图片加载完毕");

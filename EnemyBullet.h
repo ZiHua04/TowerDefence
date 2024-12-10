@@ -21,11 +21,4 @@ public:
 	void draw();
 };
 
-
-
 #endif // !ENEMYBULLET_H
-
-
-
-
-

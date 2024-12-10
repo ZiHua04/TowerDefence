@@ -21,12 +21,4 @@ public:
 	void draw();
 };
 
-
-
 #endif // !BULLET_H
-
-
-
-
-
-

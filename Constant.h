@@ -40,13 +40,13 @@ const int roadMap[ROW][COL] = {
 };
 // 0:空地 -1:可建塔
 const int towerMap[ROW][COL] = {
-    {0,-1,-1,-1,-1,-1,-1,-1,-1,0,-1},
-    {-1,-1,-1,-1,0,-1,-1,-1,-1,-1,-1},
-    {-1,-1,0,-1,-1,0,-1,-1,0,-1,-1},
-    {-1,-1,-1,-1,0,-1,-1,-1,-1,-1,-1},
-    {0,-1,-1,-1,-1,-1,-1,-1,0,-1,-1},
-    {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-    {-1,-1,-1,0,-1,-1,0,-1,-1,-1,-1},
+	{0,-1,-1,-1,-1,-1,-1,-1,-1,0,-1},
+	{-1,-1,-1,-1,0,-1,-1,-1,-1,-1,-1},
+	{-1,-1,0,-1,-1,0,-1,-1,0,-1,-1},
+	{-1,-1,-1,-1,0,-1,-1,-1,-1,-1,-1},
+	{0,-1,-1,-1,-1,-1,-1,-1,0,-1,-1},
+	{-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
+	{-1,-1,-1,0,-1,-1,0,-1,-1,-1,-1},
 };
 
 // ======= 图片 =======
@@ -63,20 +63,19 @@ std::vector<IMAGE> getTowerImages(TowerType type, int grade);
 
 // ======= 怪物信息 =======
 struct MonsterInfo {
-    int heart;
-    float speed;
-    int coin;
-    float im_width;
-    float im_height;
+	int heart;
+	float speed;
+	int coin;
+	float im_width;
+	float im_height;
 };
 // ======= 塔的信息 =======
 struct TowerInfo {
-
-    int heart;
-    float speed;
-    int upgradeCost;
-    float attackRange;
-    int coinPerSecond;
+	int heart;
+	float speed;
+	int upgradeCost;
+	float attackRange;
+	int coinPerSecond;
 };
 
 extern std::map<MonsterType, MonsterInfo> monsterInfo;
@@ -85,20 +84,20 @@ extern std::map<int, TowerInfo> towerInfo;
 
 // ======= 坐标结构 =======
 struct Coordinate {
-    int row = -1;
-    int col = -1;
+	int row = -1;
+	int col = -1;
 
-    Coordinate() = default;
-    Coordinate(int r, int c) : row(r), col(c) {}
-    bool operator<(const Coordinate& other) const {
-        if (row == other.row) {
-            return col < other.col;  // 如果 x 相同，比较 y
-        }
-        return row < other.row;  // 比较 x
-    }
-    bool operator==(const Coordinate& other) const {
-        return (row == other.row && col == other.col);
-    }
+	Coordinate() = default;
+	Coordinate(int r, int c) : row(r), col(c) {}
+	bool operator<(const Coordinate& other) const {
+		if (row == other.row) {
+			return col < other.col;  // 如果 x 相同，比较 y
+		}
+		return row < other.row;  // 比较 x
+	}
+	bool operator==(const Coordinate& other) const {
+		return (row == other.row && col == other.col);
+	}
 };
 
 #endif // CONSTANT_H

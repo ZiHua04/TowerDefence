@@ -97,6 +97,10 @@ void Monster::move()
 {
 	this->x += this->vx;
 	this->y += this->vy;
+	if (type == MonsterType::Boss && heart < monsterInfo[type].heart / 2) {
+		this->x += this->vx;
+		this->y += this->vy;
+	}
     // 检查是否到达目标中心
 	// 目标坐标
 	float targetX = currentCoordinate.col * BLOCK_WIDTH + BLOCK_WIDTH / 2;

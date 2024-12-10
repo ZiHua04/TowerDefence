@@ -4,7 +4,7 @@
 #include "Toolkit.h"
 #include <conio.h>
 #include "Global.h"
-
+#include "FrontPage.h"
 
 
 
@@ -127,14 +127,20 @@ void drawAll() {
 // 显示开始菜单界面
 void ShowStartScene() {
 	initgraph(WIDHT, HEIGHT); // 初始化图形窗口
+	BeginBatchDraw(); // 开始批量绘制
 	while (currentGameState == GameState::START_SCENE) {
-
-		drawText("这是开始界面", WIDHT / 2, HEIGHT / 2, 40);
-		drawText("按空格键开始游戏", WIDHT / 2, HEIGHT / 2 + 50, 30);
-		if (_getch() == ' ') {
+		// 检测输入
+		frontPageInput();
+		/*drawText("这是开始界面", WIDHT / 2, HEIGHT / 2, 40);
+		drawText("按空格键开始游戏", WIDHT / 2, HEIGHT / 2 + 50, 30);*/
+		putimage(0, 0, &im_front_bk);
+		/*if (_getch() == ' ') {
 			currentGameState = GameState::PLAYING;
-		};
+		};*/
+		frontPageDraw();
+		Sleep(5);
 	}
+	EndBatchDraw(); // 结束
 	closegraph();
 }
 #pragma endregion

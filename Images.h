@@ -4,8 +4,14 @@
 
 #include <vector>
 #include <graphics.h>
+// Ê×Ò³±³¾°Í¼Æ¬
+extern IMAGE im_front_bk;
+// ¹Ø¿¨Í¼Æ¬
+extern IMAGE im_front_level;
 
 extern IMAGE im_bk;// ±³¾°Í¼Æ¬
+
+
 
 // ¹ÖÎïÍ¼Æ¬
 extern std::vector<IMAGE> ims_monster_w;

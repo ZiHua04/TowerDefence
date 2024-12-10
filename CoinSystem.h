@@ -27,20 +27,12 @@ public:
 	std::vector<TextWithPos> texts; // 界面上显示的加金币文字
 
 	CoinSystem(); // 构造函数
-	
+
 	void addCoin(int value, float x, float y); // 加金币
 	bool subCoin(int value); // 减金币，如果金币不够返回false
 	int getCoin(); // 查询当前金币
 	void draw(); // 绘制
 	void update(); // 更新
-	
 };
 
-
 #endif // !COINSYSTEM_H
-
-
-
-
-
-
