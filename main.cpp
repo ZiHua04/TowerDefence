@@ -122,7 +122,7 @@ void drawAll() {
 		monsters[i]->draw();
 	}
 }
-GameState currentGameState = GameState::START_SCENE;
+
 #pragma region 开始界面，暂时用不到
 // 显示开始菜单界面
 void ShowStartScene() {

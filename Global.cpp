@@ -1,5 +1,8 @@
 #include "Global.h"
 #include "EnemyBullet.h"
+
+GameState currentGameState = GameState::START_SCENE;
+
 ExMessage m;
 // π÷ŒÔ
 std::vector<Monster*> monsters;

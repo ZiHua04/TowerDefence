@@ -57,7 +57,7 @@ extern std::map<MonsterType, std::vector<IMAGE>> ims_d;
 
 void addMaps();
 
-std::vector<IMAGE> getImagesByTypeAndDirection(MonsterType type, char direction);
+std::vector<IMAGE> getImagesByTypeAndDirection(MonsterType type, char direction, bool isAngry = false);
 
 std::vector<IMAGE> getTowerImages(TowerType type, int grade);
 

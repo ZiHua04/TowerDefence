@@ -24,11 +24,14 @@ MonsterCreator::MonsterCreator(double totalTime, std::array<double, 3> waveTimes
 
 void MonsterCreator::update()
 {
-	if (!isStart) return;
 	draw();
+	if (!isStart) return;
+	
 	this->runTime = (clock() - startTime) / CLOCKS_PER_SEC;
+	// 生成结束
 	if (this->runTime > this->totalTime) {
 		isStart = false;
+		monsters.push_back(new Monster(MonsterType::Boss, Coordinate(6, 1)));
 		return;
 	}
 	// 线性生成
@@ -60,6 +63,7 @@ void MonsterCreator::startCreate()
 {
 	startTime = clock();
 	isStart = true;
+	
 }
 
 void MonsterCreator::linearCreate()

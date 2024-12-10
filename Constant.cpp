@@ -22,6 +22,7 @@ void addMaps() {
     ims_a.insert(std::pair<MonsterType, std::vector<IMAGE>>(MonsterType::Dog, ims_dog_a));
     ims_s.insert(std::pair<MonsterType, std::vector<IMAGE>>(MonsterType::Dog, ims_dog_s));
     ims_d.insert(std::pair<MonsterType, std::vector<IMAGE>>(MonsterType::Dog, ims_dog_d));
+
 }
 
 
@@ -29,7 +30,8 @@ void addMaps() {
 std::map<MonsterType, MonsterInfo> monsterInfo = {
     {MonsterType::Goblin, {20, 1, 5, 47, 56}},
     {MonsterType::Bee, {10, 0.5, 10, 47, 56}},
-    {MonsterType::Dog, {5, 3, 10, 47, 56}}
+    {MonsterType::Dog, {5, 3, 10, 47, 56}},
+    {MonsterType::Boss, {100, 1, 100, 192, 112}}
 };
 std::map<int, TowerInfo> towerInfo = {
     {1, {5, 0.5, 10, 150, 1}},
@@ -37,7 +39,24 @@ std::map<int, TowerInfo> towerInfo = {
     {3, {20, 0.2, 40, 220, 3}}
 };
 
-std::vector<IMAGE> getImagesByTypeAndDirection(MonsterType type, char direction) {
+std::vector<IMAGE> getImagesByTypeAndDirection(MonsterType type, char direction, bool isAngry) {
+    if (type == MonsterType::Boss) {
+        if (isAngry) {
+            switch (direction)
+            {
+            case 'd': return ims_boss_d_fly;
+            case 'a': return ims_boss_a_fly;
+            }
+        }
+        else{
+            switch (direction)
+            {
+            case 'd': return ims_boss_d_walk;
+            case 'a': return ims_boss_a_walk;
+            }
+        }
+        return ims_boss_d_walk;
+    }
     switch (direction) {
         case 'w': return ims_w[type];
         case 'a': return ims_a[type];

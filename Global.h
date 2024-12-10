@@ -12,6 +12,9 @@
 #include "EnemyBullet.h"
 #include "PropSystem.h"
 #include "MonsterCreator.h"
+
+extern GameState currentGameState;
+
 extern ExMessage m;
 
 // π÷ŒÔ

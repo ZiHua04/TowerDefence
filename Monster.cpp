@@ -4,6 +4,7 @@
 #include "EnemyBullet.h"
 #include "Toolkit.h"
 #include <thread>
+#include "Constant.h"
 Monster::Monster(MonsterType type, Coordinate coordinate) {
     // 初始化id
     this->id = ++MonsterId;
@@ -32,6 +33,17 @@ Monster::~Monster()
 
 void Monster::drawHeart()
 {
+	if (type == MonsterType::Boss) {
+		rectangle(BLOCK_WIDTH * 3, 100, WIDHT - BLOCK_WIDTH * 3, 120);
+		float totalWidth = WIDHT - BLOCK_WIDTH * 6;
+		float currentWidth = totalWidth * this->heart / monsterInfo[type].heart;
+		setfillcolor(RED);
+		fillrectangle(BLOCK_WIDTH * 3, 100, BLOCK_WIDTH * 3 + currentWidth, 120);
+		settextcolor(BLACK);
+		drawText("哥布林头目", BLOCK_WIDTH * 6 + 24 * 2.5, 120, 24);
+		return;
+	}
+
 	// 血条宽度
 	float heartWidth = 50;
 	// 血条高度
@@ -61,13 +73,15 @@ void Monster::drawHeart()
 
 void Monster::draw()
 {
+	this->aniCount++;
+	if (aniCount > ANI_MAX_COUNT * 1.0 / this->speed) {
+		aniCount = 0;
+		aniId++;
+		aniId %= ims_monster.size();
+	}
+	aniId %= ims_monster.size();
     putimagePng(this->x - this->width/2, this->y - this->height/2, &ims_monster[aniId]);
-    this->aniCount++;
-    if (aniCount > ANI_MAX_COUNT * 1.0 / this->speed) {
-        aniCount = 0;
-        aniId++;
-        aniId %= ims_monster.size();
-    }
+    
 	drawHeart();
 	if (type == MonsterType::Bee) {
 		setlinecolor(RED);
@@ -125,6 +139,11 @@ void Monster::update()
 	}
 	if (this->heart <= 0) {
 		coinSystem->addCoin(this->dropCoins, this->x, this->y);
+		if (type == MonsterType::Boss) {
+			destoryMonsterById(this->id);
+			currentGameState = GameState::WIN;
+			return;
+		}
 		destoryMonsterById(this->id);
 	}
 	
@@ -139,7 +158,8 @@ Coordinate Monster::findNext()
 		if (roadMap[row - 1][col] == 1 && row - 1 != lastCoordinate.row) {
 			this->vx = 0;
 			this->vy = -BLOCK_HEIGHT * this->speed / 200;
-			this->ims_monster = getImagesByTypeAndDirection(type, 'w');
+			if(type != MonsterType::Boss)
+				this->ims_monster = getImagesByTypeAndDirection(type, 'w');
 			return Coordinate(row - 1, col);
 		}
 	}
@@ -148,7 +168,8 @@ Coordinate Monster::findNext()
 		if (roadMap[row + 1][col] == 1 && row + 1 != lastCoordinate.row) {
 			this->vx = 0;
 			this->vy = BLOCK_HEIGHT * this->speed / 200;
-			this->ims_monster = getImagesByTypeAndDirection(type, 's');
+			if (type != MonsterType::Boss)
+				this->ims_monster = getImagesByTypeAndDirection(type, 's');
 			return Coordinate(row + 1, col);
 		}
 	}
@@ -157,7 +178,11 @@ Coordinate Monster::findNext()
 		if (roadMap[row][col - 1] == 1 && col - 1 != lastCoordinate.col) {
 			this->vx = -BLOCK_WIDTH * this->speed / 200;
 			this->vy = 0;
-			this->ims_monster = getImagesByTypeAndDirection(type, 'a');
+			if (type != MonsterType::Boss)
+				this->ims_monster = getImagesByTypeAndDirection(type, 'a');
+			else
+				this->ims_monster = getImagesByTypeAndDirection(type, 'a', (heart < monsterInfo[type].heart/2));
+				
 			return Coordinate(row, col - 1);
 		}
 	}
@@ -166,7 +191,10 @@ Coordinate Monster::findNext()
 		if (roadMap[row][col + 1] == 1 && col + 1 != lastCoordinate.col) {
 			this->vx = BLOCK_WIDTH * this->speed / 200;
 			this->vy = 0;
-			this->ims_monster = getImagesByTypeAndDirection(type, 'd');
+			if (type != MonsterType::Boss)
+				this->ims_monster = getImagesByTypeAndDirection(type, 'd');
+			else
+				this->ims_monster = getImagesByTypeAndDirection(type, 'd', (heart < monsterInfo[type].heart / 2));
 			return Coordinate(row, col + 1);
 		}
 	}

@@ -16,7 +16,11 @@ std::vector<IMAGE> ims_bee_w;
 std::vector<IMAGE> ims_bee_a;
 std::vector<IMAGE> ims_bee_s;
 std::vector<IMAGE> ims_bee_d;
-
+// ¹Øµ×boss
+std::vector<IMAGE> ims_boss_a_walk;
+std::vector<IMAGE> ims_boss_a_fly;
+std::vector<IMAGE> ims_boss_d_walk;
+std::vector<IMAGE> ims_boss_d_fly;
 // ËşÍ¼Æ¬
 std::vector<IMAGE> ims_tower1;
 std::vector<IMAGE> ims_tower2;
@@ -138,7 +142,29 @@ void loadAllImages() {
 		loadimage(&im, filename);
 		ims_bee_d.push_back(im);
 	}
-	printf_s("¹ÖÎïÍ¼Æ¬¼ÓÔØÍê±Ï");
+	printf_s("Ğ°¶ñÃÛ·äÍ¼Æ¬¼ÓÔØÍê±Ï");
+	// ¼ÓÔØ¹Øµ×bossÍ¼Æ¬
+	for (int i = 0; i < 6; i++) {
+		_stprintf_s(filename, _T("res/images/Monster/Boss/A_Fly/%d.png"), i);
+		IMAGE im;
+		loadimage(&im, filename);
+		ims_boss_a_fly.push_back(im);
+
+		_stprintf_s(filename, _T("res/images/Monster/Boss/D_Fly/%d.png"), i);
+		loadimage(&im, filename);
+		ims_boss_d_fly.push_back(im);
+	}
+	for (int i = 0; i < 12; i++) {
+		_stprintf_s(filename, _T("res/images/Monster/Boss/A_Walk/%d.png"), i);
+		IMAGE im;
+		loadimage(&im, filename);
+		ims_boss_a_walk.push_back(im);
+
+		_stprintf_s(filename, _T("res/images/Monster/Boss/D_Walk/%d.png"), i);
+		loadimage(&im, filename);
+		ims_boss_d_walk.push_back(im);
+	}
+	printf_s("¹Øµ×bossÍ¼Æ¬¼ÓÔØÍê±Ï");
 	// ¼ÓÔØËşÍ¼Æ¬
 	for (int i = 0; i < 4; i++) {
 		_stprintf_s(filename, _T("res/images/Tower/tower1/%d.png"), i);

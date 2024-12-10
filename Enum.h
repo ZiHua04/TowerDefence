@@ -19,7 +19,8 @@ enum class MonsterType {
 	// 蜜蜂
 	Bee,
 	// 狗
-	Dog
+	Dog,
+	Boss
 };
 // 表示按钮类型	
 enum class ClickButtonType {

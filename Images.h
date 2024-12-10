@@ -22,6 +22,11 @@ extern std::vector<IMAGE> ims_bee_w;
 extern std::vector<IMAGE> ims_bee_a;
 extern std::vector<IMAGE> ims_bee_s;
 extern std::vector<IMAGE> ims_bee_d;
+// ¹Øµ×boss
+extern std::vector<IMAGE> ims_boss_a_walk;
+extern std::vector<IMAGE> ims_boss_a_fly;
+extern std::vector<IMAGE> ims_boss_d_walk;
+extern std::vector<IMAGE> ims_boss_d_fly;
 // ËþÍ¼Æ¬
 extern std::vector<IMAGE> ims_tower1;
 extern std::vector<IMAGE> ims_tower2;
