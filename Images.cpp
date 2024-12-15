@@ -71,6 +71,9 @@ IMAGE im_ui_waveflag;
 IMAGE im_ui_bossflag;
 // 警告图片
 IMAGE im_ui_warning;
+// 结果图像
+IMAGE im_result;
+
 
 void loadAllImages() {
 	TCHAR filename[80];
@@ -80,7 +83,8 @@ void loadAllImages() {
 	// 加载关卡图片
 	loadimage(&im_front_level, _T("res/images/ui/LevelIcon.png"));
 	printf_s("关卡图片加载完毕");
-
+	// 加载结算背景
+	loadimage(&im_result, _T("res/images/结算画面.png"));
 
 	// 加载背景图片1
 	loadimage(&im_bk, _T("res/images/背景图.png"));

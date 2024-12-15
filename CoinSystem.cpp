@@ -68,3 +68,8 @@ void CoinSystem::update() {
 	}
 
 }
+
+void CoinSystem::reset()
+{
+	this->currentCoin = 100;
+}

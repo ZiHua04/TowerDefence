@@ -50,7 +50,7 @@ void MonsterCreator::update()
 
 	// ¼ì²âÊÇ·ñÊ§°Ü
 	if (this->currentEnterMonster >= this->maxEnterMonster) {
-		//currentGameState = GameState::LOSE;
+		currentGameState = GameState::LOSE;
 	}
 }
 

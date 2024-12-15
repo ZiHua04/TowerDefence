@@ -49,4 +49,7 @@ void destoryEnemyBulletById(int id);
 // ´İ»ÙËş
 void destoryTowerById(int id);
 
+// Çå¿ÕËùÓĞvector
+void clearData();
+
 #endif // _GLOBAL_H_

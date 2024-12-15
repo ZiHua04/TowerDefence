@@ -79,3 +79,24 @@ void destoryTowerById(int id) {
 		}
 	}
 }
+
+void clearData() {
+	while (!bullets.empty())
+	{
+		destoryBulletById(bullets[0]->id);
+	}
+	
+	while (!enemyBullets.empty()) {
+		destoryEnemyBulletById(enemyBullets[0]->id);
+	}
+	while (!monsters.empty())
+	{
+		destoryMonsterById(monsters[0]->id);
+	}
+	for (auto& pair : towers) {
+		delete pair.second;  // 删除每个指向 Tower 对象的指针
+	}
+	towers.clear();  // 清空 map
+
+	coinSystem->reset();
+}

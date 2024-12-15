@@ -35,10 +35,11 @@ void input() {
 		int row = y / BLOCK_HEIGHT;
 		if (col < 0 || col >= COL || row < 0 || row >= ROW) return;
 		if (propSystem->click(x, y)) return;
-
+		//currentGameState = GameState::LOSE;
 		clickButton->clickCoordinate(Coordinate(row, col));
 		break;
 	}
+	
 }
 // 处理所有碰撞事件
 void detectAll() {
@@ -181,12 +182,23 @@ void ShowStartScene() {
 #pragma region 结算界面，暂时用不到
 // 显示结算场景
 void ShowResultScene() {
+
+	IMAGE im_res;
+	loadimage(&im_res, _T("res/images/result.png"), WIDHT * 0.6, HEIGHT * 0.6);
 	initgraph(WIDHT, HEIGHT); // 初始化图形窗口
 	while (currentGameState == GameState::WIN || currentGameState == GameState::LOSE) {
+		putimage(0, 0, &im_result);
+		putimage(WIDHT / 2 - im_res.getwidth() / 2, HEIGHT / 2 - im_res.getheight() / 2, &im_res);
+		if (currentGameState == GameState::WIN) {
+			settextcolor(RGB(255, 69, 0));
+			drawText("恭喜您，游戏胜利", WIDHT / 2 - 4 * 40, HEIGHT / 2 + im_res.getheight() / 2, 40);
+		}
+		else {
+			settextcolor(RGB(139, 0, 0));
+			drawText("很遗憾，游戏失败", WIDHT / 2 - 4 * 40, HEIGHT / 2 + im_res.getheight() / 2, 40);
+		}
 		
-		drawText("这是结算界面", WIDHT / 2, HEIGHT / 2, 40);
-		drawText("按空格键重启游戏", WIDHT / 2, HEIGHT / 2 + 50, 30);
-		if (_getch() == ' ') {
+		if (_getch()) {
 			currentGameState = GameState::START_SCENE;
 		};
 	}
@@ -252,7 +264,11 @@ void ShowPlayingScene() {
 
 	
     EndBatchDraw(); // 结束批量绘制
+	IMAGE im_res;
+	getimage(&im_res, 0, 0, WIDHT, HEIGHT);
+	saveimage(_T("res/images/result.png", &im_res));
 	closegraph();
+	clearData();
 }
 #pragma endregion
 

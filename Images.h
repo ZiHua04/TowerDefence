@@ -76,6 +76,8 @@ extern IMAGE im_ui_waveflag;
 extern IMAGE im_ui_bossflag;
 // ¾¯¸æÍ¼Æ¬
 extern IMAGE im_ui_warning;
+// ½á¹ûÍ¼Ïñ
+extern IMAGE im_result;
 void loadAllImages();
 
 #endif // !IMAGES_H

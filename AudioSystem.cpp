@@ -45,13 +45,11 @@ void AudioSystem::playAudio(AudioType type)
 
 void AudioSystem::sendPlayCommand(std::string name)
 {
+	// 得到完整路径
 	std::string path = this->folderPath + name;
 	// 转换 std::string 为 std::wstring
 	std::wstring wpath(path.begin(), path.end());
-	std::wstring command = L"open " + wpath + L" alias audio"; // 注意是宽字符
-
-	
-	
+	std::wstring command = L"open " + wpath + L" alias audio"; // 
 
 	std::thread([this, command]() {
 		// 使用 c_str() 转换为 LPCWSTR
