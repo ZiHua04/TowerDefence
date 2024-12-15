@@ -13,8 +13,10 @@
 // pSrcImg	要绘制的IMAGE对象指针
 inline void putimagePng(int img_x, int img_y, IMAGE* pSrcImg)
 {
+	if (pSrcImg == nullptr) return;
 	DWORD* dst = GetImageBuffer();
 	DWORD* src = GetImageBuffer(pSrcImg);
+	if (dst == nullptr || src == nullptr) return;
 	int src_width = pSrcImg->getwidth();
 	int src_height = pSrcImg->getheight();
 	int dst_width = getwidth();

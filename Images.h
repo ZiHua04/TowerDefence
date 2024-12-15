@@ -11,7 +11,8 @@ extern IMAGE im_front_level;
 
 extern IMAGE im_bk;// ±≥æ∞Õº∆¨
 
-
+extern IMAGE im_bk2; // ±≥æ∞Õº∆¨2
+extern IMAGE im_bk3; // ±≥æ∞Õº∆¨3
 
 // π÷ŒÔÕº∆¨
 extern std::vector<IMAGE> ims_monster_w;

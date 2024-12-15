@@ -36,6 +36,7 @@ void frontPageClick(float x, float y) {
 		if (x > levelIcon->x&& x < levelIcon->x + levelIcon->width && y > levelIcon->y && y < levelIcon->y + levelIcon->height) {
 			currentGameState = GameState::PLAYING;
 			levelIcons.clear();
+			currentLevel = i;
 			return;
 		}
 	}

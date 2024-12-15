@@ -16,12 +16,13 @@ public:
 	int cost;
 	float range;
 	void subCountTime();
+	
 };
 
 class PropSystem
 {
 private:
-	void draw();
+	
 	void drawIce();
 	void drawBomb();
 	void useProp();
@@ -36,6 +37,7 @@ public:
 	Prop* bombProp;
 	Prop* cancelProp;
 	PropSystem();
+	void draw();
 	void update();
 	bool click(float x, float y);
 	

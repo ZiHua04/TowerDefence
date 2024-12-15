@@ -39,7 +39,7 @@ class VFXSystem
 private:
 	std::vector<VFX*>  onceVFX;
 	std::vector<Text*> texts;
-	void draw();
+	
 	void drawAllText();
 	void drawOnce();
 	void destoryVFX(int id);
@@ -50,7 +50,7 @@ public:
 
 	}
 	void update();
-	
+	void draw();
 	// 播放特效
 	void PlayVFX(float x, float y, VFXType type, VFXPlayClass playClass = VFXPlayClass::Once);
 	// 播放文字
@@ -60,4 +60,3 @@ public:
 
 
 #endif // !VFXSYSTEM_H
-

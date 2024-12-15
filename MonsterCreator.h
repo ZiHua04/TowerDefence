@@ -28,9 +28,13 @@ public:
 	double runTime; // 本关游玩时间
 	double lastCreateTime;
 	float waveTimes[3]; // 每个波次的时间
-	float diffRate = 0.1f; // 难度倍率，及每秒钟生成的怪物。
-	float maxDiffRate = 1.0f;
-	MonsterCreator(double totalTime, std::array<double, 3> waveTimes);
+	float diffRate; // 难度倍率，及每秒钟生成的怪物。
+	float maxDiffRate;
+
+	int maxEnterMonster;
+	int currentEnterMonster;
+
+	MonsterCreator();
 	void update();
 	void draw();
 	void startCreate();

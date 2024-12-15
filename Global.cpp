@@ -1,6 +1,8 @@
 #include "Global.h"
 #include "EnemyBullet.h"
 
+int currentLevel = 0;
+
 GameState currentGameState = GameState::START_SCENE;
 
 ExMessage m;
@@ -21,7 +23,9 @@ VFXSystem* vfxSystem = new VFXSystem();
 // 道具系统
 PropSystem* propSystem = new PropSystem();
 // 怪物生产器
-MonsterCreator* monsterCreator = new MonsterCreator(120, {30,60,100});
+MonsterCreator* monsterCreator;
+// 音效系统
+AudioSystem* audioSystem = new AudioSystem();
 
 void destoryMonsterById(int id) {
 	// 使用 std::find_if 查找

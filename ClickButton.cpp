@@ -14,7 +14,7 @@ ClickButton::ClickButton()
 
 void ClickButton::draw()
 {
-	
+	if (this == nullptr) return;
 
 	if (this->type == ClickButtonType::Hide) {
 		// 绘制铲子图片
@@ -42,7 +42,7 @@ void ClickButton::draw()
 			aniId++;
 			aniId %= ims_upgrade_button.size();
 		}
-		
+		if (towers[lastClickCoordinate] == NULL) return;
 		int cost = towers[lastClickCoordinate]->upgradeCost;
 		settextcolor(YELLOW);
 		drawText(std::to_string(cost), x + width / 2 - 7, y + 15, 15);
@@ -53,7 +53,8 @@ void ClickButton::draw()
 }
 void ClickButton::update()
 {
-	draw();
+	if (this == nullptr) return;
+	//draw();
 }
 /*点击某一方块，有可能出现有效的情况有：
 1 - 可建造，待建造。 
@@ -99,6 +100,7 @@ void ClickButton::clickCoordinate(Coordinate coordinate)
 					if (pair.first == coordinate) {
 						// 这里已经建造
 						// 判断是否能升级
+						if (pair.second == nullptr) return;
 						if (pair.second->currentGrade < 3)// 能升级
 						{
 							show(ClickButtonType::Upgrade, coordinate);
@@ -136,6 +138,8 @@ void ClickButton::clickCoordinate(Coordinate coordinate)
 
 			if ((coordinate.row == lastClickCoordinate.row - 1|| coordinate.row == lastClickCoordinate.row) && coordinate.col == lastClickCoordinate.col) {
 				towers[lastClickCoordinate]->upgrade();
+				hide();
+				return;
 			}
 			// 判断是否可以建造
 			if (towerMap[coordinate.row][coordinate.col] == 0) {
@@ -146,6 +150,10 @@ void ClickButton::clickCoordinate(Coordinate coordinate)
 					if (pair.first == coordinate) {
 						// 这里已经建造
 						// 判断是否能升级
+						if (pair.second == nullptr) {
+							show(ClickButtonType::Build, coordinate);
+							return;
+						}
 						if (pair.second->currentGrade < 3) {
 							show(ClickButtonType::Upgrade, coordinate);
 							return;
@@ -175,6 +183,10 @@ void ClickButton::clickCoordinate(Coordinate coordinate)
 					if (pair.first == coordinate) {
 						// 这里已经建造
 						// 判断是否能升级
+						if (pair.second == nullptr) {
+							show(ClickButtonType::Build, coordinate);
+							return;
+						}
 						if (pair.second->currentGrade < 3) {
 							show(ClickButtonType::Upgrade, coordinate);
 							return;

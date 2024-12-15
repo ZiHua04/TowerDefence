@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AudioSystem.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="ClickButton.h" />
     <ClInclude Include="CoinSystem.h" />
@@ -159,6 +160,7 @@
     <ClInclude Include="VFXSystem.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AudioSystem.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="ClickButton.cpp" />
     <ClCompile Include="CoinSystem.cpp" />

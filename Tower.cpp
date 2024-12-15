@@ -22,6 +22,7 @@ Tower::Tower(TowerType type, Coordinate coordinate)
 
 
 void Tower::draw() {
+	if (this == nullptr) return;
 	
 	putimagePng(x-width/2, y-height/2, &ims_tower[aniId]);
 	aniCount++;
@@ -51,8 +52,9 @@ void Tower::draw() {
 
 void Tower::update()
 {
-	draw();
 
+	//draw();
+	if (this == nullptr) return;
 	this->shootCount += 5;
 	if (shootCount >= this->speed * 1000) {
 		this->shootCount = 0;
@@ -78,6 +80,8 @@ void Tower::Shoot()
 		float xmax = xmin + monsters[i]->width;
 		float ymax = ymin + monsters[i]->height;
 		if (isCircleRectangleIntersect(cx, cy, this->attckRange, xmin, ymin, xmax, ymax)) {
+			// 播放音效
+			audioSystem->playAudio(AudioType::Shoot);
 			bullets.push_back(new Bullet(x, y, monsters[i]));
 			return;
 		}
@@ -91,6 +95,7 @@ void Tower::addCoin()
 
 void Tower::upgrade()
 {
+	if (this == nullptr) return;
 	// 检查是否满级
 	if (currentGrade >= 3) return;
 	// 检查是否有足够金币

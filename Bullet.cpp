@@ -32,11 +32,13 @@ void Bullet::move(){
 
 void Bullet::update()
 {
-	draw();
+	if (this == nullptr) return;
+	//draw();
 	move();
 }
 
 void Bullet::draw()
 {
+	if (this == nullptr) return;
 	putimagePng(x, y, &im_bullet);
 }

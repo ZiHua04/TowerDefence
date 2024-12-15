@@ -6,7 +6,8 @@ IMAGE im_front_bk;
 IMAGE im_front_level;
 
 IMAGE im_bk;// ±≥æ∞Õº∆¨
-
+IMAGE im_bk2; // ±≥æ∞Õº∆¨2
+IMAGE im_bk3; // ±≥æ∞Õº∆¨3
 // π÷ŒÔÕº∆¨
 std::vector<IMAGE> ims_monster_w;
 std::vector<IMAGE> ims_monster_a;
@@ -80,9 +81,16 @@ void loadAllImages() {
 	loadimage(&im_front_level, _T("res/images/ui/LevelIcon.png"));
 	printf_s("πÿø®Õº∆¨º”‘ÿÕÍ±œ");
 
-	// º”‘ÿ±≥æ∞Õº∆¨
+
+	// º”‘ÿ±≥æ∞Õº∆¨1
 	loadimage(&im_bk, _T("res/images/±≥æ∞Õº.png"));
-	printf_s("±≥æ∞Õº∆¨º”‘ÿÕÍ±œ");
+	printf_s("±≥æ∞Õº∆¨1º”‘ÿÕÍ±œ");
+	// º”‘ÿ±≥æ∞Õº∆¨2
+	loadimage(&im_bk2, _T("res/images/”Œœ∑±≥æ∞2.png"));
+	printf_s("±≥æ∞Õº∆¨2º”‘ÿÕÍ±œ");
+	// º”‘ÿ±≥æ∞Õº∆¨1
+	loadimage(&im_bk3, _T("res/images/”Œœ∑±≥æ∞3.png"));
+	printf_s("±≥æ∞Õº∆¨3º”‘ÿÕÍ±œ");
 
 	for (int i = 0; i < 12; i++) {
 		_stprintf_s(filename, _T("res/images/UI/…˝º∂∞¥≈•/%d.png"), i);

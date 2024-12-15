@@ -34,11 +34,13 @@ void EnemyBullet::move()
 
 void EnemyBullet::update()
 {
-	draw();
+	if (this == nullptr) return;
+	//draw();
 	move();
 }
 
 void EnemyBullet::draw()
 {
+	if (this == nullptr) return;
 	putimagePng(x, y, &im_bullet);
 }

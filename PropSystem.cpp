@@ -17,6 +17,7 @@ PropSystem::PropSystem()
 
 void PropSystem::draw()
 {
+	if (this == nullptr) return;
 	if (this->isUsingProp) {
 		// 绘制取消按钮
 		putimagePng(cancelProp->x, cancelProp->y, &im_wrong);
@@ -96,7 +97,8 @@ void PropSystem::drawBomb()
 
 void PropSystem::update()
 {
-	draw();
+	if (this == nullptr) return;
+	//draw();
 	this->bombProp->subCountTime();
 	this->iceProp->subCountTime();
 	if (!isUsingProp) return;
@@ -162,7 +164,8 @@ void PropSystem::useIce()
 {
 	// 播放特效
 	vfxSystem->PlayVFX(m.x, m.y, VFXType::Ice);
-
+	// 播放音效
+	audioSystem->playAudio(AudioType::Ice);
 
 	// 检查该区域内的怪物
 	for (int i = 0; i < monsters.size(); i++) {
@@ -177,6 +180,8 @@ void PropSystem::useIce()
 }
 void PropSystem::useBomb()
 {
+	// 播放音效
+	audioSystem->playAudio(AudioType::Boom);
 	// 播放特效
 	vfxSystem->PlayVFX(m.x, m.y, VFXType::Boom);
 	// 检查该区域内的怪物

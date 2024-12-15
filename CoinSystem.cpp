@@ -26,6 +26,7 @@ int CoinSystem::getCoin() {
 }
 
 void CoinSystem::draw() {
+	if (this == nullptr) return;
 	putimagePng(WIDHT - 70, 20, &ims_coin[aniId]);
 	aniCount++;
 	if (aniCount > ANI_MAX_COUNT) {
@@ -50,7 +51,8 @@ void CoinSystem::draw() {
 }
 
 void CoinSystem::update() {
-	draw();
+	if (this == nullptr) return;
+	//draw();
 	for (int i = 0; i < this->texts.size(); i++) {
 		texts[i].y--;
 		texts[i].counter--;

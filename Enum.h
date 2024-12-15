@@ -52,5 +52,12 @@ enum class PropType {
 	Ice,
 	Cancel
 };
+// 表示音效类型
+enum class AudioType {
+	Boom = 0,
+	Ice,
+	Shoot,
+	MonsterWave,
+};
 #endif // !ENUM_H
 

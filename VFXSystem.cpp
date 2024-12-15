@@ -11,6 +11,7 @@ void VFXSystem::draw()
 
 void VFXSystem::drawAllText()
 {
+	if (this == nullptr) return;
 	for (int i = 0; i < texts.size(); i++) {
 		Text* text = texts[i];
 		settextcolor(text->color);
@@ -126,7 +127,8 @@ void VFXSystem::addText(std::string info, float x, float y, float existTime, int
 
 void VFXSystem::update()
 {
-	this->draw();
+	if (this == nullptr) return;
+	//this->draw();
 }
 
 void VFXSystem::PlayVFX(float x, float y, VFXType type, VFXPlayClass playClass)

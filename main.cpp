@@ -5,12 +5,20 @@
 #include <conio.h>
 #include "Global.h"
 #include "FrontPage.h"
-
+#include <thread>
 
 
 // 初始化一把游戏
 void init() {
 	initgraph(WIDHT, HEIGHT); // 初始化图形窗口
+	for (int i = 0; i < ROW; i++) {
+		for (int j = 0; j < COL; j++) {
+			roadMap[i][j] = levelInfoMap[currentLevel].roadMap[i][j];
+			towerMap[i][j] = levelInfoMap[currentLevel].towerMap[i][j];
+		}
+	}
+
+	monsterCreator = new MonsterCreator();
 	monsterCreator->startCreate();
 }
 
@@ -52,6 +60,7 @@ void detectAll() {
 		std::map<Coordinate, Tower*>::iterator iter;
 		for (iter = towers.begin(); iter != towers.end(); iter++) {
 			//cout << iter->first << " : " << iter->second << endl;
+			if (iter->second == NULL) return;
 			float x1 = iter->second->x;
 			float y1 = iter->second->y;
 			float width1 = iter->second->width;
@@ -61,7 +70,7 @@ void detectAll() {
 			float width2 = enemyBullets[i]->width;
 			float height2 = enemyBullets[i]->height;
 			if (DetectTwoRectangle(x1, y1, x2, y2, width1, height1, width2, height2)) {
-				
+
 				// 播放特效
 				vfxSystem->PlayVFX(enemyBullets[i]->x, enemyBullets[i]->y, VFXType::Hit);// 播放特效
 				// 减少生命值
@@ -77,19 +86,19 @@ void detectAll() {
 int tempSecondCount = 0;
 // 更新每秒
 void updatePerSecond() {
-	
-	
-	
-	
+
+
+
+
 }
 // 更新所有游戏对象
 void updateAll() {
+
+
 	for (int i = 0; i < monsters.size(); i++) {
 		monsters[i]->update();
 		
 	}
-
-	
 
 	for (const auto& pair : towers) {
 		// pair.first 是键 (Coordinate)， pair.second 是值 (Tower*)
@@ -117,10 +126,34 @@ void updateAll() {
 }
 // 绘制所有游戏对象
 void drawAll() {
-	putimage(0, 0, &im_bk); // 绘制背景
+	putimage(0, 0, &levelInfoMap[currentLevel].im_bk); // 绘制背景
+	// 绘制怪物
 	for (int i = 0; i < monsters.size(); i++) {
 		monsters[i]->draw();
 	}
+	// 绘制塔
+	for (const auto& pair : towers) {
+		// pair.first 是键 (Coordinate)， pair.second 是值 (Tower*)
+		pair.second->draw();
+	}
+	// 绘制子弹
+	for (int i = 0; i < bullets.size(); i++) {
+		bullets[i]->draw();
+	}
+	for (int i = 0; i < enemyBullets.size(); i++) {
+		enemyBullets[i]->draw();
+	}
+	// 绘制ClickButton
+	clickButton->draw();
+	// 绘制金币
+	coinSystem->draw();
+	// 绘制特效
+	vfxSystem->draw();
+	// 绘制道具
+	propSystem->draw();
+	// 绘制怪物生成
+	monsterCreator->draw();
+	
 }
 
 #pragma region 开始界面，暂时用不到
@@ -166,21 +199,58 @@ void ShowResultScene() {
 void ShowPlayingScene() {
 	init();// 初始化游戏资源
 	BeginBatchDraw(); // 开始批量绘制
+	// 输入进程
+	std::thread([]() {
+		while (currentGameState == GameState::PLAYING)
+		{
+			input();
+			std::this_thread::sleep_for(std::chrono::milliseconds((int)TICK_TIME));
+		}
+
+		}).detach();
+	// 碰撞检测进程
+	/*std::thread([]() {
+		while (currentGameState == GameState::PLAYING)
+		{
+			detectAll();
+			std::this_thread::sleep_for(std::chrono::milliseconds(5));
+		}
+
+		}).detach();*/
+	// 更新进程
+	std::thread([]() {
+		while (currentGameState == GameState::PLAYING)
+		{
+			detectAll();
+			updateAll();
+			cleardevice();
+			drawAll();
+			FlushBatchDraw();
+			std::this_thread::sleep_for(std::chrono::milliseconds((int)TICK_TIME));
+		}
+
+		}).detach();
+	
 	while (currentGameState == GameState::PLAYING)
 	{
-		input();
+		//input();
 
-		detectAll();
+		//detectAll();
 		
-		cleardevice();
-		drawAll();
-		updateAll();
-		FlushBatchDraw();
+		//updateAll();
 
-		Sleep(TICK_TIME);
+		//cleardevice();
+		//drawAll();
+		//FlushBatchDraw();
+
+		//Sleep(TICK_TIME);
 		
 		
 	}
+
+
+
+	
     EndBatchDraw(); // 结束批量绘制
 	closegraph();
 }
@@ -189,6 +259,7 @@ void ShowPlayingScene() {
 int main() {
 	loadAllImages(); // 加载所有图片
 	addMaps();
+	initLevelInfoMap();
 	while (currentGameState != GameState::EXIT) {
 		ShowStartScene(); // 显示开始菜单界面
 		ShowPlayingScene(); // 显示游戏界面

@@ -66,6 +66,9 @@
     <ClInclude Include="FrontPage.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="AudioSystem.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -111,6 +114,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="FrontPage.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioSystem.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

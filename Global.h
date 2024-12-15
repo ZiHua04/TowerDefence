@@ -12,6 +12,9 @@
 #include "EnemyBullet.h"
 #include "PropSystem.h"
 #include "MonsterCreator.h"
+#include "AudioSystem.h"
+
+extern int currentLevel;
 
 extern GameState currentGameState;
 
@@ -35,6 +38,8 @@ extern VFXSystem* vfxSystem;
 extern PropSystem* propSystem;
 // 怪物生产器
 extern MonsterCreator* monsterCreator;
+// 音效系统
+extern AudioSystem* audioSystem;
 // 摧毁怪物
 void destoryMonsterById(int id);
 // 摧毁子弹

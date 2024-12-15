@@ -73,6 +73,7 @@ void Monster::drawHeart()
 
 void Monster::draw()
 {
+	if (this == nullptr) return;
 	this->aniCount++;
 	if (aniCount > ANI_MAX_COUNT * 1.0 / this->speed) {
 		aniCount = 0;
@@ -117,6 +118,7 @@ void Monster::move()
 		if (currentCoordinate.row == -1 && currentCoordinate.col == -1){
 			// 到达终点
 			isArrived = true;
+			monsterCreator->currentEnterMonster++;
 			return;
 		}
 	}
@@ -125,6 +127,7 @@ void Monster::move()
 
 void Monster::update()
 {
+	if (this == nullptr) return;
     draw();// 绘制
     move();// 移动
 	timeCount += 5;
@@ -218,6 +221,7 @@ void Monster::shoot()
 	float cy = this->y + this->height / 2;
 	std::map<Coordinate, Tower*>::iterator iter;
 	for (iter = towers.begin(); iter != towers.end(); iter++) {
+		if (iter->second == nullptr) return;
 		//cout << iter->first << " : " << iter->second << endl;
 		float xmin = iter->second->x;
 		float ymin = iter->second->y;
