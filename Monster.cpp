@@ -119,6 +119,9 @@ void Monster::move()
 			// µ½´ïÖÕµã
 			isArrived = true;
 			monsterCreator->currentEnterMonster++;
+			if (type == MonsterType::Boss) {
+				currentGameState = GameState::LOSE;
+			}
 			return;
 		}
 	}

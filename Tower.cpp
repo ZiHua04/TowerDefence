@@ -23,7 +23,7 @@ Tower::Tower(TowerType type, Coordinate coordinate)
 
 void Tower::draw() {
 	if (this == nullptr) return;
-	
+	aniId %= ims_tower.size();
 	putimagePng(x-width/2, y-height/2, &ims_tower[aniId]);
 	aniCount++;
 	if (aniCount > ANI_MAX_COUNT) {

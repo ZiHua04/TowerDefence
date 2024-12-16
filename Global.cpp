@@ -81,6 +81,9 @@ void destoryTowerById(int id) {
 }
 
 void clearData() {
+
+	clickButton->hide();
+
 	while (!bullets.empty())
 	{
 		destoryBulletById(bullets[0]->id);

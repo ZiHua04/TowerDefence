@@ -212,6 +212,7 @@ void ClickButton::clickCoordinate(Coordinate coordinate)
 
 void ClickButton::show(ClickButtonType type, Coordinate coordinate)
 {
+	audioSystem->playAudio(AudioType::Click);
 	lastClickCoordinate = coordinate;
 	this->type = type;
 	switch (type) {

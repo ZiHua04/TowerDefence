@@ -58,6 +58,12 @@ enum class AudioType {
 	Ice,
 	Shoot,
 	MonsterWave,
+	Click,
+	MissCoin,
+	GameStart,
+	Cheer,
+	Clap,
+	Lose
 };
 #endif // !ENUM_H
 

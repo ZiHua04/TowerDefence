@@ -35,7 +35,7 @@ void input() {
 		int row = y / BLOCK_HEIGHT;
 		if (col < 0 || col >= COL || row < 0 || row >= ROW) return;
 		if (propSystem->click(x, y)) return;
-		//currentGameState = GameState::LOSE;
+		//currentGameState = GameState::WIN;
 		clickButton->clickCoordinate(Coordinate(row, col));
 		break;
 	}
@@ -157,9 +157,10 @@ void drawAll() {
 	
 }
 
-#pragma region 开始界面，暂时用不到
+#pragma region 开始界面
 // 显示开始菜单界面
 void ShowStartScene() {
+	audioSystem->playBGM();
 	initgraph(WIDHT, HEIGHT); // 初始化图形窗口
 	BeginBatchDraw(); // 开始批量绘制
 	while (currentGameState == GameState::START_SCENE) {
@@ -179,13 +180,20 @@ void ShowStartScene() {
 }
 #pragma endregion
 
-#pragma region 结算界面，暂时用不到
+#pragma region 结算界面
 // 显示结算场景
 void ShowResultScene() {
 
 	IMAGE im_res;
 	loadimage(&im_res, _T("res/images/result.png"), WIDHT * 0.6, HEIGHT * 0.6);
 	initgraph(WIDHT, HEIGHT); // 初始化图形窗口
+	if (currentGameState == GameState::WIN) {
+		audioSystem->playAudio(AudioType::Cheer);
+		audioSystem->playAudio(AudioType::Clap);
+	}
+	else {
+		audioSystem->playAudio(AudioType::Lose);
+	}
 	while (currentGameState == GameState::WIN || currentGameState == GameState::LOSE) {
 		putimage(0, 0, &im_result);
 		putimage(WIDHT / 2 - im_res.getwidth() / 2, HEIGHT / 2 - im_res.getheight() / 2, &im_res);
@@ -210,6 +218,8 @@ void ShowResultScene() {
 // 显示游戏界面
 void ShowPlayingScene() {
 	init();// 初始化游戏资源
+	audioSystem->playBGM(currentLevel);
+	audioSystem->playAudio(AudioType::GameStart);
 	BeginBatchDraw(); // 开始批量绘制
 	// 输入进程
 	std::thread([]() {

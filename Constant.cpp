@@ -39,8 +39,8 @@ std::map<MonsterType, MonsterInfo> monsterInfo = {
 };
 std::map<int, TowerInfo> towerInfo = {
     {1, {5, 0.5, 10, 150, 1}},
-    {2, {10, 0.3, 20, 200, 2}},
-    {3, {20, 0.2, 40, 220, 3}}
+    {2, {10, 0.3, 20, 200, 1}},
+    {3, {20, 0.2, 40, 220, 1}}
 };
 
 std::vector<IMAGE> getImagesByTypeAndDirection(MonsterType type, char direction, bool isAngry) {

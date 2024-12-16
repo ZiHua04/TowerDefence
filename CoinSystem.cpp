@@ -2,7 +2,7 @@
 #include "Toolkit.h"
 #include "Constant.h"
 #include "EasyXPng.h"
-
+#include "Global.h"
 CoinSystem::CoinSystem() {
 	
 }
@@ -17,7 +17,11 @@ void CoinSystem::addCoin(int value, float x, float y) {
 }
 
 bool CoinSystem::subCoin(int value) {
-	if (getCoin() - value < 0) return false;
+	if (getCoin() - value < 0) {
+		audioSystem->playAudio(AudioType::MissCoin);
+		vfxSystem->addText("½ð±Ò²»¹»", m.x, m.y);
+		return false;
+	}
 	this->currentCoin -= value;
 }
 
@@ -71,5 +75,5 @@ void CoinSystem::update() {
 
 void CoinSystem::reset()
 {
-	this->currentCoin = 100;
+	this->currentCoin = 50;
 }

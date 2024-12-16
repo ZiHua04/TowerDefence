@@ -1,5 +1,6 @@
 #include "Bullet.h"
 #include "EasyXPng.h"
+#include "Global.h"
 Bullet::Bullet(float x, float y, Monster* target)
 {
 	id = ++bulletId;
@@ -13,7 +14,10 @@ Bullet::Bullet(float x, float y, Monster* target)
 void Bullet::move(){
 	x += vx;
 	y += vy;
-	if (targetMonster == nullptr) return;
+	if (targetMonster == nullptr) {
+		destoryBulletById(this->id);
+		return;
+	}
 	try
 	{
 		float dis_x = targetMonster->x - x;

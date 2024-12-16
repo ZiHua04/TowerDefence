@@ -16,6 +16,7 @@ public:
 	AudioSystem();
 	// 播放背景音乐
 	void playBGM();
+	void playBGM(int i);
 	// 根据音效种类来播放相应音效
 	void playAudio(AudioType type);
 	// 发送命令

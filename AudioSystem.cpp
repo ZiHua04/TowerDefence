@@ -3,11 +3,13 @@
 #include <thread>
 AudioSystem::AudioSystem()
 {
-	this->playBGM();
+	//this->playBGM();
 }
 
 void AudioSystem::playBGM()
 {
+	mciSendString(L"close bgm", 0, 0, 0);
+
 	std::string path = this->folderPath + "Run.mp3";
 	// 转换 std::string 为 std::wstring
 	std::wstring wpath(path.begin(), path.end());
@@ -21,6 +23,33 @@ void AudioSystem::playBGM()
 	//mciSendString(_T("open res/sounds/Run.mp3 alias bgm"), 0, 0, 0);
 	//mciSendString(_T("play bgm"), 0, 0, 0);
 }
+
+void AudioSystem::playBGM(int i)
+{
+	mciSendString(L"close bgm", 0, 0, 0);
+	std::string path = "";
+	
+	if (i == 0) {
+		path = this->folderPath + "Stars.mp3";
+	}
+	else if (i == 1) {
+		path = this->folderPath + "Stars2.mp3";
+	}
+	else {
+		path = this->folderPath + "Run.mp3";
+	}
+	
+	// 转换 std::string 为 std::wstring
+	std::wstring wpath(path.begin(), path.end());
+	std::wstring command = L"open " + wpath + L" alias bgm"; // 注意是宽字符
+	// 使用 c_str() 转换为 LPCWSTR
+	mciSendString(command.c_str(), 0, 0, 0);
+
+	// 播放音乐命令
+	mciSendString(L"play bgm repeat", 0, 0, 0); // L"play bgm" 是宽字符字符串
+}
+
+
 
 void AudioSystem::playAudio(AudioType type)
 {
@@ -37,6 +66,24 @@ void AudioSystem::playAudio(AudioType type)
 		break;
 	case AudioType::MonsterWave:
 		this->sendPlayCommand("MonsterLaughing.mp3");
+		break;
+	case AudioType::Click:
+		this->sendPlayCommand("button_click.mp3");
+		break;
+	case AudioType::MissCoin:
+		this->sendPlayCommand("wrongCoin.mp3");
+		break;
+	case AudioType::GameStart:
+		this->sendPlayCommand("game_start.mp3");
+		break;
+	case AudioType::Cheer:
+		this->sendPlayCommand("cheer.mp3");
+		break;
+	case AudioType::Clap:
+		this->sendPlayCommand("clap.mp3");
+		break;
+	case AudioType::Lose:
+		this->sendPlayCommand("game_lose.mp3");
 		break;
 	default:
 		break;

@@ -10,6 +10,8 @@ public:
 	float x, y;
 	float width, height;
 	int diff;
+	int aniId = 0;
+	int aniCount = 0;
 };
 // ¹Ø¿¨Í¼±ê
 extern std::vector<LevelIcon*> levelIcons;
