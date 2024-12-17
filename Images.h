@@ -78,6 +78,8 @@ extern IMAGE im_ui_bossflag;
 extern IMAGE im_ui_warning;
 // 结果图像
 extern IMAGE im_result;
+// 金币和怪物数量背景
+extern IMAGE im_coinBK;
 void loadAllImages();
 
 #endif // !IMAGES_H

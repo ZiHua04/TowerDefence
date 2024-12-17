@@ -73,7 +73,7 @@ void MonsterCreator::draw()
 
 	// 绘制进入怪物数量
 	settextcolor(BLACK);
-	drawText(std::to_string(this->currentEnterMonster) + "/" + std::to_string(this->maxEnterMonster), WIDHT-60, 60, 20);
+	drawText(std::to_string(this->currentEnterMonster) + "/" + std::to_string(this->maxEnterMonster), WIDHT-60, 50, 20);
 }
 
 void MonsterCreator::startCreate()

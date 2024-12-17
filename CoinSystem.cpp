@@ -31,7 +31,8 @@ int CoinSystem::getCoin() {
 
 void CoinSystem::draw() {
 	if (this == nullptr) return;
-	putimagePng(WIDHT - 70, 20, &ims_coin[aniId]);
+	putimagePng(WIDHT - im_coinBK.getwidth(), 0, &im_coinBK);
+	putimagePng(WIDHT - im_coinBK.getwidth() + 8, 13, &ims_coin[aniId]);
 	aniCount++;
 	if (aniCount > ANI_MAX_COUNT) {
 		aniCount = 0;
@@ -40,7 +41,7 @@ void CoinSystem::draw() {
 	}
 	// »­µ±Ç°Ê£Óà½ð±Ò
 	settextcolor(YELLOW);
-	drawText(std::to_string(currentCoin), WIDHT - 50, 10, 30);
+	drawText(std::to_string(currentCoin), WIDHT - 60, 8, 24);
 
 	for (int i = 0; i < this->texts.size(); i++) {
 		drawText(texts[i].text, texts[i].x, texts[i].y, 20);

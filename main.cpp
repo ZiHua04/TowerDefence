@@ -187,6 +187,7 @@ void ShowResultScene() {
 	IMAGE im_res;
 	loadimage(&im_res, _T("res/images/result.png"), WIDHT * 0.6, HEIGHT * 0.6);
 	initgraph(WIDHT, HEIGHT); // 初始化图形窗口
+	// 更具胜负来播放音效
 	if (currentGameState == GameState::WIN) {
 		audioSystem->playAudio(AudioType::Cheer);
 		audioSystem->playAudio(AudioType::Clap);
@@ -230,42 +231,20 @@ void ShowPlayingScene() {
 		}
 
 		}).detach();
-	// 碰撞检测进程
-	/*std::thread([]() {
-		while (currentGameState == GameState::PLAYING)
-		{
-			detectAll();
-			std::this_thread::sleep_for(std::chrono::milliseconds(5));
-		}
-
-		}).detach();*/
-	// 更新进程
-	std::thread([]() {
-		while (currentGameState == GameState::PLAYING)
-		{
-			detectAll();
-			updateAll();
-			cleardevice();
-			drawAll();
-			FlushBatchDraw();
-			std::this_thread::sleep_for(std::chrono::milliseconds((int)TICK_TIME));
-		}
-
-		}).detach();
 	
 	while (currentGameState == GameState::PLAYING)
 	{
-		//input();
+		input();
 
-		//detectAll();
+		detectAll();
 		
-		//updateAll();
+		updateAll();
 
-		//cleardevice();
-		//drawAll();
-		//FlushBatchDraw();
+		cleardevice();
+		drawAll();
+		FlushBatchDraw();
 
-		//Sleep(TICK_TIME);
+		Sleep(TICK_TIME);
 		
 		
 	}
@@ -290,7 +269,6 @@ int main() {
 		ShowStartScene(); // 显示开始菜单界面
 		ShowPlayingScene(); // 显示游戏界面
 		ShowResultScene(); // 显示结算场景
-		
 	}
 	return 0;
 }

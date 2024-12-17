@@ -73,7 +73,8 @@ IMAGE im_ui_bossflag;
 IMAGE im_ui_warning;
 // 结果图像
 IMAGE im_result;
-
+// 金币和怪物数量背景
+IMAGE im_coinBK;
 
 void loadAllImages() {
 	TCHAR filename[80];
@@ -85,6 +86,7 @@ void loadAllImages() {
 	printf_s("关卡图片加载完毕");
 	// 加载结算背景
 	loadimage(&im_result, _T("res/images/结算画面.png"));
+	
 
 	// 加载背景图片1
 	loadimage(&im_bk, _T("res/images/背景图.png"));
@@ -262,6 +264,9 @@ void loadAllImages() {
 		ims_coin.push_back(im);
 	}
 	printf_s("金币图片加载完毕");
+	// 加载金币和怪物数量背景
+	loadimage(&im_coinBK, _T("res/images/UI/金币和怪物数量背景.png"));
+	printf_s("金币和怪物数量背景加载完毕");
 	// 加载爱心图片
 	for (int i = 0; i < 8; i++) {
 		_stprintf_s(filename, _T("res/images/UI/heart/%d.png"), i);
