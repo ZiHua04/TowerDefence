@@ -234,7 +234,7 @@ void ShowPlayingScene() {
 	
 	while (currentGameState == GameState::PLAYING)
 	{
-		input();
+		//input();
 
 		detectAll();
 		

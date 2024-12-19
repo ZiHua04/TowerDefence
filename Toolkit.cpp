@@ -90,10 +90,11 @@ std::wstring stringToWString(const std::string& str) {
 }
 
 // 在指定坐标 (x, y) 处显示字符串
-void drawText(const std::string& text, int x, int y, int fontSize) {
+void drawText(const std::string& text, int x, int y, int fontSize, int color) {
 	std::wstring wtext = stringToWString(text);  // 转换 std::string 为 std::wstring
 	setbkmode(TRANSPARENT);
 	settextstyle(fontSize, 0, _T("黑体"));//设置字号、字体
+	settextcolor(color);
 	outtextxy(x, y, wtext.c_str());              // 使用 outtextxy 绘制宽字符字符串
 	
 }
